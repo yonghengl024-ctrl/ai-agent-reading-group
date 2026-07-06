@@ -56,13 +56,13 @@ chapter-01-智能体概览与本书导读.pdf
 ```markdown
 | 讲解人 | 视频链接 | PPT |
 |---|---|---|
-| 刘华珂 | [百度网盘](https://pan.baidu.com/s/xxxx?pwd=abcd) | [PDF](./slides/chapter-01-ai-agent-overview.pdf) |
+| xxx | [百度网盘](https://pan.baidu.com/s/xxxx?pwd=abcd) | [PDF](./slides/chapter-01-ai-agent-overview.pdf) |
 ```
 
 如果 PPT 还没有上传，可以先写：
 
 ```markdown
-| 刘华珂 | [百度网盘](https://pan.baidu.com/s/xxxx?pwd=abcd) | 待补充 |
+| xxx | [百度网盘](https://pan.baidu.com/s/xxxx?pwd=abcd) | 待补充 |
 ```
 
 ## 有写权限的上传流程
