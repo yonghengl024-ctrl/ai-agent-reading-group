@@ -1,0 +1,16 @@
+.DS_Store
+
+# Large media files should be uploaded to an external platform.
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.wmv
+*.flv
+*.webm
+
+# Local temporary files
+~$*
+*.tmp
+*.log
+
