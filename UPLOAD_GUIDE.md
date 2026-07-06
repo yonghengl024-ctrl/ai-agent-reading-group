@@ -1,69 +1,142 @@
-# 上传到 GitHub 的操作步骤
+# 资料上传与更新指南
 
-## 1. 检查资料
+本指南说明如何向本仓库补充 AI-Agent 使用介绍与实践资料，包括 PPT/PDF、视频链接、章节说明和实践笔记。
 
-当前仓库只保存 Markdown、PPT、PDF、图片和资料索引。视频文件请先上传到外部平台，然后把链接写入对应章节的 `videos.md`。
+## 上传前检查
 
-## 2. 添加 PPT 或 PDF
+提交资料前请确认：
 
-把每章 PPT 或 PDF 放入对应目录：
+1. PPT/PDF 可以公开或在本仓库中共享。
+2. 视频链接可以公开访问，且有效期尽量设置为永久有效。
+3. 资料中不包含学生信息、会议聊天记录、私人联系方式或未授权图片。
+4. 视频文件不要直接上传到 GitHub，应先上传到百度网盘、Bilibili、阿里云盘或其他外部平台。
+
+## 文件放置位置
+
+每章资料放在对应章节目录中：
 
 ```text
-chapters/chapter-01/slides/
-chapters/chapter-02/slides/
+chapters/chapter-XX/
+├── README.md
+├── videos.md
+├── notes.md
+└── slides/
 ```
 
-推荐文件名：
+常见更新位置：
+
+| 内容 | 文件位置 |
+|---|---|
+| PPT/PDF | `chapters/chapter-XX/slides/` |
+| 视频链接 | `chapters/chapter-XX/videos.md` |
+| 讲解人、日期、教材链接 | `chapters/chapter-XX/README.md` |
+| 实践笔记、讨论问题 | `chapters/chapter-XX/notes.md` |
+
+## PPT/PDF 命名建议
+
+建议使用清晰稳定的文件名：
 
 ```text
-chapter-01-speaker-name.pdf
-chapter-01-speaker-name.pptx
+chapter-01-ai-agent-overview.pdf
+chapter-01-ai-agent-overview.pptx
 ```
 
-然后在该章节的 `README.md` 和 `videos.md` 中补上链接。
+如果保留中文标题，也建议带上章节编号：
 
-## 3. 初始化本地 Git 仓库
+```text
+chapter-01-智能体概览与本书导读.pdf
+```
 
-在 `ai-agent-reading-group` 目录中执行：
+## 视频链接填写方式
+
+视频不要直接上传到 GitHub。请先上传到外部平台，然后修改对应章节的 `videos.md`。
+
+示例：
+
+```markdown
+| 讲解人 | 视频链接 | PPT |
+|---|---|---|
+| 刘华珂 | [百度网盘](https://pan.baidu.com/s/xxxx?pwd=abcd) | [PDF](./slides/chapter-01-ai-agent-overview.pdf) |
+```
+
+如果 PPT 还没有上传，可以先写：
+
+```markdown
+| 刘华珂 | [百度网盘](https://pan.baidu.com/s/xxxx?pwd=abcd) | 待补充 |
+```
+
+## 有写权限的上传流程
+
+如果你已经被加入为 collaborator，并且拥有 `Write` 权限，可以直接提交到本仓库。
+
+第一次操作：
 
 ```bash
-git init
+git clone https://github.com/yonghengl024-ctrl/ai-agent-reading-group.git
+cd ai-agent-reading-group
+```
+
+每次更新资料：
+
+```bash
+git pull
 git add .
-git commit -m "Initial AI-Agent reading group materials"
+git commit -m "Update chapter XX materials"
+git push
 ```
 
-## 4. 在 GitHub 创建远程仓库
-
-在 GitHub 页面新建仓库，建议名称：
-
-```text
-ai-agent-reading-group
-```
-
-如果不是官方项目，请在仓库描述中写清楚：
-
-```text
-AI-Agent 使用介绍与实践资料，非官方教材仓库。
-```
-
-## 5. 关联远程仓库并上传
-
-把下面命令中的 `你的用户名` 替换为你的 GitHub 用户名：
+提交信息建议写清楚更新内容，例如：
 
 ```bash
-git remote add origin https://github.com/你的用户名/ai-agent-reading-group.git
-git branch -M main
-git push -u origin main
+git commit -m "Add chapter 01 slides"
+git commit -m "Update chapter 08 video link"
+git commit -m "Add notes for chapter 12"
 ```
 
-## 6. 开启 GitHub Pages
+## 没有写权限的上传流程
 
-如果希望形成网页展示：
+如果你没有本仓库写权限，请通过 Fork 和 Pull Request 提交。
 
-1. 进入 GitHub 仓库页面。
-2. 打开 `Settings`。
-3. 点击 `Pages`。
-4. Source 选择 `Deploy from a branch`。
-5. Branch 选择 `main`，目录选择 `/docs`。
-6. 保存后等待 GitHub 生成页面链接。
+网页操作流程：
+
+1. 打开仓库页面。
+2. 点击右上角 `Fork`，复制一份到自己的 GitHub 账号。
+3. 在自己的 Fork 仓库中上传或修改文件。
+4. 提交修改后点击 `Contribute`。
+5. 点击 `Open pull request`。
+6. 按模板说明本次更新内容。
+7. 等待仓库维护者审核并合并。
+
+命令行操作流程：
+
+```bash
+git clone https://github.com/你的用户名/ai-agent-reading-group.git
+cd ai-agent-reading-group
+git checkout -b update-chapter-XX
+```
+
+修改文件后：
+
+```bash
+git add .
+git commit -m "Update chapter XX materials"
+git push -u origin update-chapter-XX
+```
+
+然后回到 GitHub 页面创建 Pull Request。
+
+## 不建议上传的内容
+
+请不要上传：
+
+- `.mp4`、`.mov`、`.mkv` 等视频文件
+- 未授权转载的图片、教材全文或第三方课件
+- 包含个人隐私或会议内部信息的文件
+- 与 AI-Agent 使用介绍无关的资料
+
+仓库已经通过 `.gitignore` 忽略常见视频格式，但提交前仍建议检查一次：
+
+```bash
+git status
+```
 
