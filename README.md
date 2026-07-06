@@ -14,11 +14,11 @@
 | [上传指南](./UPLOAD_GUIDE.md) | 本地资料提交到 GitHub 的操作步骤 |
 | [贡献说明](./CONTRIBUTING.md) | 文件命名、视频链接、版权检查要求 |
 | [常见问题](./FAQ.md) | 视频、PPT、版权和 GitHub Pages 相关问题 |
-| [汇报人与单位](./speakers/) | 维护可公开的汇报人和单位信息 |
+| [汇报人](./speakers/) | 维护可公开的汇报人信息 |
 
 ## 共学小组
 
-成员来自武汉大学、中山大学及其他高校教师。本仓库主要用于归档各章节汇报资料，方便组内复习、跨校交流和后续引用。
+本仓库主要用于归档教师共学小组的章节汇报资料，方便组内复习、交流和后续引用。
 
 ## 内容导航
 
@@ -31,10 +31,22 @@
 | 第 5 章 | 提示词工程与任务规划 | [进入](./chapters/chapter-05/) |
 | 第 6 章 | Git 与版本控制 | [进入](./chapters/chapter-06/) |
 | 第 7 章 | Skills 基础 | [进入](./chapters/chapter-07/) |
+| 第 8 章 | 多智能体基础：子代理 | [进入](./chapters/chapter-08/) |
 | 第 9 章 | Skills 进阶 | [进入](./chapters/chapter-09/) |
 | 第 10 章 | 智能体知识库设计 | [进入](./chapters/chapter-10/) |
 | 第 11 章 | 多智能体进阶：Agent Teams | [进入](./chapters/chapter-11/) |
+| 第 12 章 | Hooks | [进入](./chapters/chapter-12/) |
+| 第 13 章 | 评估与迭代 | [进入](./chapters/chapter-13/) |
+| 第 14 章 | 高阶使用技巧 | [进入](./chapters/chapter-14/) |
+| 第 15 章 | 自动化办公工作台 | [进入](./chapters/chapter-15/) |
+| 第 16 章 | 金融多源知识库开发实战 | [进入](./chapters/chapter-16/) |
+| 第 17 章 | 多智能体投研系统 | [进入](./chapters/chapter-17/) |
 | 第 18 章 | 文献综述智能体系统 | [进入](./chapters/chapter-18/) |
+| 第 19 章 | AI 原生知识管理系统 | [进入](./chapters/chapter-19/) |
+| 第 20 章 | AI 智能体与经济学实证研究 | [进入](./chapters/chapter-20/) |
+| 第 21 章 | OpenClaw 入门：安装部署与首次对话 | [进入](./chapters/chapter-21/) |
+| 第 22 章 | OpenClaw 架构：工作区、记忆与运行机制 | [进入](./chapters/chapter-22/) |
+| 第 23 章 | OpenClaw 实战：管家调度专家 | [进入](./chapters/chapter-23/) |
 
 ## 资料类型
 
@@ -46,7 +58,7 @@
 
 ## 视频存放建议
 
-视频文件通常较大，不建议直接提交到 GitHub 仓库。建议将视频上传到 Bilibili、腾讯会议回放、百度网盘、阿里云盘、YouTube、学校平台或对象存储服务，然后在对应章节的 `videos.md` 中维护链接。
+视频文件通常较大，不建议直接提交到 GitHub 仓库。建议将视频上传到 Bilibili、腾讯会议回放、百度网盘、阿里云盘、YouTube 或对象存储服务，然后在对应章节的 `videos.md` 中维护链接。
 
 本仓库的 `.gitignore` 已默认忽略常见视频格式，避免误提交大文件。
 
@@ -55,7 +67,7 @@
 1. 将 PPT 或 PDF 放到对应章节的 `slides/` 目录。
 2. 将视频上传到外部平台。
 3. 在对应章节的 `videos.md` 中补充视频链接。
-4. 在对应章节的 `README.md` 中补充汇报人、单位、日期和 PPT 链接。
+4. 在对应章节的 `README.md` 中补充汇报人、日期和 PPT 链接。
 5. 如有必要，在 `notes.md` 中补充本章要点、讨论问题和延伸阅读。
 
 ## 使用说明
