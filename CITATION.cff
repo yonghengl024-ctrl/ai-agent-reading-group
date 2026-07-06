@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: AI-Agent 教材共学分享资料库
+message: "如需引用本资料库，请注明仓库名称、章节、汇报人和访问日期。"
+type: dataset
+authors:
+  - name: AI-Agent 教师共学小组
+repository-code: https://github.com/your-username/ai-agent-reading-group
+abstract: 教师共学小组围绕 AI-Agent 相关教材整理的章节汇报、PPT、视频链接与学习笔记资料库。
+keywords:
+  - AI-Agent
+  - teaching
+  - reading-group
+  - education
+license: CC-BY-NC-SA-4.0
+
