@@ -22,31 +22,31 @@
 
 ## 内容导航
 
-| 章节 | 主题 | 资料入口 |
-|---|---|---|
-| 第 1 章 | 智能体概览与本书导读 | [进入](./chapters/chapter-01/) |
-| 第 2 章 | 人机协作范式 | [进入](./chapters/chapter-02/) |
-| 第 3 章 | 智能体框架安装与配置 | [进入](./chapters/chapter-03/) |
-| 第 4 章 | 项目创建与规则文件 | [进入](./chapters/chapter-04/) |
-| 第 5 章 | 提示词工程与任务规划 | [进入](./chapters/chapter-05/) |
-| 第 6 章 | Git 与版本控制 | [进入](./chapters/chapter-06/) |
-| 第 7 章 | Skills 基础 | [进入](./chapters/chapter-07/) |
-| 第 8 章 | 多智能体基础：子代理 | [进入](./chapters/chapter-08/) |
-| 第 9 章 | Skills 进阶 | [进入](./chapters/chapter-09/) |
-| 第 10 章 | 智能体知识库设计 | [进入](./chapters/chapter-10/) |
-| 第 11 章 | 多智能体进阶：Agent Teams | [进入](./chapters/chapter-11/) |
-| 第 12 章 | Hooks | [进入](./chapters/chapter-12/) |
-| 第 13 章 | 评估与迭代 | [进入](./chapters/chapter-13/) |
-| 第 14 章 | 高阶使用技巧 | [进入](./chapters/chapter-14/) |
-| 第 15 章 | 自动化办公工作台 | [进入](./chapters/chapter-15/) |
-| 第 16 章 | 金融多源知识库开发实战 | [进入](./chapters/chapter-16/) |
-| 第 17 章 | 多智能体投研系统 | [进入](./chapters/chapter-17/) |
-| 第 18 章 | 文献综述智能体系统 | [进入](./chapters/chapter-18/) |
-| 第 19 章 | AI 原生知识管理系统 | [进入](./chapters/chapter-19/) |
-| 第 20 章 | AI 智能体与经济学实证研究 | [进入](./chapters/chapter-20/) |
-| 第 21 章 | OpenClaw 入门：安装部署与首次对话 | [进入](./chapters/chapter-21/) |
-| 第 22 章 | OpenClaw 架构：工作区、记忆与运行机制 | [进入](./chapters/chapter-22/) |
-| 第 23 章 | OpenClaw 实战：管家调度专家 | [进入](./chapters/chapter-23/) |
+| 章节 | 主题 | 资料入口 | 教材 |
+|---|---|---|---|
+| 第 1 章 | 智能体概览与本书导读 | [进入](./chapters/chapter-01/) | [教材](https://ai.lingnan.top/book/chapters/chapter-1/) |
+| 第 2 章 | 人机协作范式 | [进入](./chapters/chapter-02/) | [教材](https://ai.lingnan.top/book/chapters/chapter-2/) |
+| 第 3 章 | 智能体框架安装与配置 | [进入](./chapters/chapter-03/) | [教材](https://ai.lingnan.top/book/chapters/chapter-3/) |
+| 第 4 章 | 项目创建与规则文件 | [进入](./chapters/chapter-04/) | [教材](https://ai.lingnan.top/book/chapters/chapter-4/) |
+| 第 5 章 | 提示词工程与任务规划 | [进入](./chapters/chapter-05/) | [教材](https://ai.lingnan.top/book/chapters/chapter-5/) |
+| 第 6 章 | Git 与版本控制 | [进入](./chapters/chapter-06/) | [教材](https://ai.lingnan.top/book/chapters/chapter-6/) |
+| 第 7 章 | Skills 基础 | [进入](./chapters/chapter-07/) | [教材](https://ai.lingnan.top/book/chapters/chapter-7/) |
+| 第 8 章 | 多智能体基础：子代理 | [进入](./chapters/chapter-08/) | [教材](https://ai.lingnan.top/book/chapters/chapter-8/) |
+| 第 9 章 | Skills 进阶 | [进入](./chapters/chapter-09/) | [教材](https://ai.lingnan.top/book/chapters/chapter-9/) |
+| 第 10 章 | 智能体知识库设计 | [进入](./chapters/chapter-10/) | [教材](https://ai.lingnan.top/book/chapters/chapter-10/) |
+| 第 11 章 | 多智能体进阶：Agent Teams | [进入](./chapters/chapter-11/) | [教材](https://ai.lingnan.top/book/chapters/chapter-11/) |
+| 第 12 章 | Hooks | [进入](./chapters/chapter-12/) | [教材](https://ai.lingnan.top/book/chapters/chapter-12/) |
+| 第 13 章 | 评估与迭代 | [进入](./chapters/chapter-13/) | [教材](https://ai.lingnan.top/book/chapters/chapter-13/) |
+| 第 14 章 | 高阶使用技巧 | [进入](./chapters/chapter-14/) | [教材](https://ai.lingnan.top/book/chapters/chapter-14/) |
+| 第 15 章 | 自动化办公工作台 | [进入](./chapters/chapter-15/) | [教材](https://ai.lingnan.top/book/chapters/chapter-15/) |
+| 第 16 章 | 金融多源知识库开发实战 | [进入](./chapters/chapter-16/) | [教材](https://ai.lingnan.top/book/chapters/chapter-16/) |
+| 第 17 章 | 多智能体投研系统 | [进入](./chapters/chapter-17/) | [教材](https://ai.lingnan.top/book/chapters/chapter-17/) |
+| 第 18 章 | 文献综述智能体系统 | [进入](./chapters/chapter-18/) | [教材](https://ai.lingnan.top/book/chapters/chapter-18/) |
+| 第 19 章 | AI 原生知识管理系统 | [进入](./chapters/chapter-19/) | [教材](https://ai.lingnan.top/book/chapters/chapter-19/) |
+| 第 20 章 | AI 智能体与经济学实证研究 | [进入](./chapters/chapter-20/) | [教材](https://ai.lingnan.top/book/chapters/chapter-20/) |
+| 第 21 章 | OpenClaw 入门：安装部署与首次对话 | [进入](./chapters/chapter-21/) | [教材](https://ai.lingnan.top/book/chapters/chapter-21/) |
+| 第 22 章 | OpenClaw 架构：工作区、记忆与运行机制 | [进入](./chapters/chapter-22/) | [教材](https://ai.lingnan.top/book/chapters/chapter-22/) |
+| 第 23 章 | OpenClaw 实战：管家调度专家 | [进入](./chapters/chapter-23/) | [教材](https://ai.lingnan.top/book/chapters/chapter-23/) |
 
 ## 资料类型
 
