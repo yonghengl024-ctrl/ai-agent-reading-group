@@ -85,8 +85,7 @@ title: AI-Agent 使用介绍与实践资料
     margin-top: 24px;
   }
 
-  .linkbar a,
-  .card-actions a {
+  .linkbar a {
     display: inline-flex;
     align-items: center;
     min-height: 38px;
@@ -193,109 +192,6 @@ title: AI-Agent 使用介绍与实践资料
     text-decoration: none;
   }
 
-  .section-heading {
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    align-items: end;
-    margin: 34px 0 14px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .section-heading h2 {
-    margin: 0;
-    font-size: 24px;
-    letter-spacing: 0;
-  }
-
-  .section-heading p {
-    max-width: 520px;
-    margin: 0;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .chapter-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
-    gap: 14px;
-  }
-
-  .chapter-card {
-    min-height: 174px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 18px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--paper);
-    box-shadow: 0 12px 26px rgba(23, 32, 51, .045);
-    transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-  }
-
-  .chapter-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(8, 127, 140, .45);
-    box-shadow: 0 18px 34px rgba(23, 32, 51, .09);
-  }
-
-  .chapter-card h3 {
-    margin: 0 0 12px;
-    font-size: 16px;
-    line-height: 1.45;
-  }
-
-  .chapter-card h3 span {
-    display: block;
-    margin-top: 4px;
-    font-size: 15px;
-    font-weight: 600;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-
-  .tag {
-    padding: 4px 7px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.1;
-  }
-
-  .tag.textbook {
-    background: #e8f3f4;
-    color: var(--teal);
-  }
-
-  .tag.video {
-    background: #f5ede5;
-    color: var(--amber);
-  }
-
-  .tag.material {
-    background: #e9f3ea;
-    color: var(--green);
-  }
-
-  .tag.example {
-    background: #eceefd;
-    color: var(--indigo);
-  }
-
-  .card-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
   .footer-note {
     margin-top: 34px;
     padding-top: 18px;
@@ -311,39 +207,23 @@ title: AI-Agent 使用介绍与实践资料
     .stage-grid {
       grid-template-columns: 1fr;
     }
-
-    .section-heading {
-      display: block;
-    }
-
-    .section-heading p {
-      margin-top: 8px;
-    }
   }
 
   @media (prefers-reduced-motion: no-preference) {
     .hero,
     .metric,
-    .stage-card,
-    .chapter-card {
+    .stage-card {
       animation: rise-in .52s ease both;
     }
 
     .metric:nth-child(2) { animation-delay: .05s; }
     .metric:nth-child(3) { animation-delay: .1s; }
     .metric:nth-child(4) { animation-delay: .15s; }
-    .chapter-card:nth-child(2n) { animation-delay: .04s; }
-    .chapter-card:nth-child(3n) { animation-delay: .08s; }
-    .chapter-card:nth-child(4n) { animation-delay: .12s; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     body {
       animation: none;
-    }
-
-    .chapter-card {
-      transition: none;
     }
   }
 
@@ -392,7 +272,7 @@ title: AI-Agent 使用介绍与实践资料
     </div>
     <div class="route">
       <strong>推荐阅读路径</strong>
-      <code>基础概念 -> 工具机制 -> 工作流设计 -> 场景实践</code>
+      <code>教材导读 -> 实践资料 -> 后续专题 -> 持续更新</code>
     </div>
   </section>
 
@@ -413,56 +293,6 @@ title: AI-Agent 使用介绍与实践资料
       <h2>后续：专题分享</h2>
       <p>教材学习完成后，新的 AI-Agent 工具实践、案例复盘、论文分享和工作流模板会放入独立专题目录。</p>
       <a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/topics">查看专题入口</a>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-heading">
-      <h2>基础入门</h2>
-      <p>从智能体概念、人机协作、环境配置、规则文件、提示词工程和版本控制开始。</p>
-    </div>
-    <div class="chapter-grid">
-      <article class="chapter-card"><div><h3>第 1 章<span>智能体概览与本书导读</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-01">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-1/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 2 章<span>人机协作范式</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-02">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-2/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 3 章<span>智能体框架安装与配置</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-03">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-3/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 4 章<span>项目创建与规则文件</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-04">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-4/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 5 章<span>提示词工程与任务规划</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-05">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-5/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 6 章<span>Git 与版本控制</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-06">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-6/">教材</a></div></article>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-heading">
-      <h2>工具机制</h2>
-      <p>围绕 Skills、多智能体、知识库、Agent Teams、Hooks、评估迭代和高阶使用技巧组织资料。</p>
-    </div>
-    <div class="chapter-grid">
-      <article class="chapter-card"><div><h3>第 7 章<span>Skills 基础</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-07">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-7/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 8 章<span>多智能体基础：子代理</span></h3><div class="tags"><span class="tag textbook">教材</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-08">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-8/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 9 章<span>Skills 进阶</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span><span class="tag material">PPT</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-09">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-9/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 10 章<span>智能体知识库设计</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span><span class="tag material">PPT</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-10">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-10/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 11 章<span>多智能体进阶：Agent Teams</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-11">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-11/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 12 章<span>Hooks</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span><span class="tag material">PPT</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-12">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-12/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 13 章<span>评估与迭代</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span><span class="tag material">HTML</span><span class="tag example">案例</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-13">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-13/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 14 章<span>高阶使用技巧</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span><span class="tag material">HTML</span><span class="tag example">案例</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-14">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-14/">教材</a></div></article>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-heading">
-      <h2>场景实践</h2>
-      <p>面向办公自动化、金融知识库、投研系统、文献综述、知识管理、经济学实证和 OpenClaw 实战。</p>
-    </div>
-    <div class="chapter-grid">
-      <article class="chapter-card"><div><h3>第 15 章<span>自动化办公工作台</span></h3><div class="tags"><span class="tag textbook">教材</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-15">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-15/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 16 章<span>金融多源知识库开发实战</span></h3><div class="tags"><span class="tag textbook">教材</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-16">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-16/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 17 章<span>多智能体投研系统</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-17">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-17/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 18 章<span>文献综述智能体系统</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span><span class="tag material">PPT</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-18">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-18/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 19 章<span>AI 原生知识管理系统</span></h3><div class="tags"><span class="tag textbook">教材</span><span class="tag video">视频</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-19">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-19/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 20 章<span>AI 智能体与经济学实证研究</span></h3><div class="tags"><span class="tag textbook">教材</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-20">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-20/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 21 章<span>OpenClaw 入门：安装部署与首次对话</span></h3><div class="tags"><span class="tag textbook">教材</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-21">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-21/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 22 章<span>OpenClaw 架构：工作区、记忆与运行机制</span></h3><div class="tags"><span class="tag textbook">教材</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-22">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-22/">教材</a></div></article>
-      <article class="chapter-card"><div><h3>第 23 章<span>OpenClaw 实战：管家调度专家</span></h3><div class="tags"><span class="tag textbook">教材</span></div></div><div class="card-actions"><a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters/chapter-23">资料</a><a href="https://ai.lingnan.top/book/chapters/chapter-23/">教材</a></div></article>
     </div>
   </section>
 
