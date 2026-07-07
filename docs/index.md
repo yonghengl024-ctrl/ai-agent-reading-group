@@ -16,17 +16,47 @@ title: AI-Agent 使用介绍与实践资料
   }
 
   body {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    overflow-x: hidden;
     background: var(--wash);
+  }
+
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  body::before {
     background-image:
-      linear-gradient(120deg, rgba(8, 127, 140, .10), rgba(8, 127, 140, 0) 34%),
-      linear-gradient(245deg, rgba(184, 107, 47, .10), rgba(184, 107, 47, 0) 34%),
-      repeating-linear-gradient(90deg, rgba(23, 32, 51, .035) 0 1px, transparent 1px 36px),
-      repeating-linear-gradient(0deg, rgba(23, 32, 51, .03) 0 1px, transparent 1px 36px);
-    background-size: 100% 560px, 100% 560px, 36px 36px, 36px 36px;
-    animation: background-drift 18s ease-in-out infinite alternate;
+      linear-gradient(118deg, rgba(8, 127, 140, .18) 0%, rgba(8, 127, 140, 0) 34%),
+      linear-gradient(248deg, rgba(184, 107, 47, .16) 0%, rgba(184, 107, 47, 0) 38%),
+      linear-gradient(42deg, rgba(64, 81, 181, .12) 0%, rgba(64, 81, 181, 0) 36%),
+      linear-gradient(180deg, rgba(255, 255, 255, .82), rgba(246, 248, 251, .94));
+    background-position: 0% 0%, 100% 0%, 18% 100%, 0 0;
+    background-size: 170% 170%, 180% 180%, 160% 160%, 100% 100%;
+    animation: color-flow 22s ease-in-out infinite alternate;
+  }
+
+  body::after {
+    opacity: .58;
+    background-image:
+      linear-gradient(105deg, transparent 0 34%, rgba(255, 255, 255, .62) 43%, transparent 53%),
+      repeating-linear-gradient(90deg, rgba(23, 32, 51, .05) 0 1px, transparent 1px 58px),
+      repeating-linear-gradient(0deg, rgba(23, 32, 51, .04) 0 1px, transparent 1px 58px);
+    background-size: 240% 240%, 58px 58px, 58px 58px;
+    background-position: -80% -40%, 0 0, 0 0;
+    animation: grid-flow 28s linear infinite;
   }
 
   .page-shell {
+    position: relative;
+    z-index: 1;
     max-width: 1180px;
     margin: 0 auto;
     padding: 34px 20px 58px;
@@ -222,18 +252,29 @@ title: AI-Agent 使用介绍与实践资料
   }
 
   @media (prefers-reduced-motion: reduce) {
-    body {
+    body::before,
+    body::after {
       animation: none;
     }
   }
 
-  @keyframes background-drift {
+  @keyframes color-flow {
     from {
-      background-position: 0 0, 100% 0, 0 0, 0 0;
+      background-position: 0% 0%, 100% 0%, 18% 100%, 0 0;
     }
 
     to {
-      background-position: 0 28px, 100% -28px, 18px 12px, 12px 18px;
+      background-position: 34% 18%, 70% 28%, 82% 58%, 0 0;
+    }
+  }
+
+  @keyframes grid-flow {
+    from {
+      background-position: -80% -40%, 0 0, 0 0;
+    }
+
+    to {
+      background-position: 120% 70%, 58px 34px, 34px 58px;
     }
   }
 
