@@ -1,6 +1,6 @@
 # 资料上传与更新指南
 
-本指南说明如何向本仓库补充 AI-Agent 使用介绍与实践资料，包括 PPT/PDF、视频链接、章节说明和实践笔记。
+本指南说明如何向本仓库补充 AI-Agent 使用介绍与实践资料，包括 PPT/PDF、视频链接、章节说明、专题说明和实践笔记。
 
 ## 上传前检查
 
@@ -13,7 +13,7 @@
 
 ## 文件放置位置
 
-每章资料放在对应章节目录中：
+第一期教材导读资料放在对应章节目录中：
 
 ```text
 chapters/chapter-XX/
@@ -32,6 +32,24 @@ chapters/chapter-XX/
 | 讲解人、教材链接、资料说明 | `chapters/chapter-XX/README.md` |
 | 实践案例、代码、示例数据 | `chapters/chapter-XX/examples/` |
 | 学习笔记 | 有正式内容时添加 `chapters/chapter-XX/notes.md` |
+
+教材学习完成后的其他分享内容放在 `topics/` 中，每个专题单独建目录：
+
+```text
+topics/topic-name/
+├── README.md
+├── videos.md
+├── slides/
+└── examples/   # 可选
+```
+
+专题目录建议使用英文或拼音短名，例如：
+
+```text
+topics/agent-office-workflow/
+topics/research-agent-tools/
+topics/multi-agent-cases/
+```
 
 ## PPT/PDF 命名建议
 
@@ -92,6 +110,7 @@ git push
 git commit -m "Add chapter 01 slides"
 git commit -m "Update chapter 08 video link"
 git commit -m "Add chapter 12 notes"
+git commit -m "Add topic materials for agent office workflow"
 ```
 
 ## 没有写权限的上传流程
@@ -133,7 +152,7 @@ git push -u origin update-chapter-XX
 - `.mp4`、`.mov`、`.mkv` 等视频文件
 - 未授权转载的图片、教材全文或第三方课件
 - 包含个人隐私或会议内部信息的文件
-- 与 AI-Agent 使用介绍无关的资料
+- 与 AI-Agent 使用介绍或后续专题分享无关的资料
 
 仓库已经通过 `.gitignore` 忽略常见视频格式，但提交前仍建议检查一次：
 

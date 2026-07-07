@@ -4,12 +4,15 @@
   <img alt="Chapters" src="https://img.shields.io/badge/chapters-23-087f8c">
   <img alt="Video links" src="https://img.shields.io/badge/video_links-16%2F23-b86b2f">
   <img alt="Materials" src="https://img.shields.io/badge/materials-PPT%2FHTML-2f7d32">
+  <img alt="Series" src="https://img.shields.io/badge/series-book%20%2B%20topics-4051b5">
   <img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub_Pages-online-4051b5">
 </p>
 
-本仓库用于系统介绍 AI-Agent 的核心概念、工具使用、工作流设计和典型实践场景，整理了章节教材链接、讲解视频、PPT/HTML/PDF、实践案例和延伸阅读。
+本仓库用于系统介绍 AI-Agent 的核心概念、工具使用、工作流设计和典型实践场景，整理学习分享中的教材链接、讲解视频、PPT/HTML/PDF、实践案例和延伸阅读。
 
-项目目标不是替代原教材，而是围绕 AI-Agent 的实际使用建立一个结构稳定、便于检索、方便维护和可以长期引用的公开资料入口。读者可以按章节了解 AI-Agent 从基础概念、提示词工程、版本控制、Skills、多智能体、Hooks，到知识库、办公自动化、投研系统、文献综述和经济学实证研究等场景中的使用方法。
+当前第一期内容以《AI-Agent》教材学习分享为主线。教材学习完成后，本仓库会继续收录其他 AI-Agent 相关专题分享、工具实践、案例复盘和工作流资料。
+
+项目目标不是替代原教材，而是围绕 AI-Agent 的实际使用建立一个结构稳定、便于检索、方便维护和可以长期引用的公开资料入口。读者可以按教材章节了解 AI-Agent 从基础概念、提示词工程、版本控制、Skills、多智能体、Hooks，到知识库、办公自动化、投研系统、文献综述和经济学实证研究等场景中的使用方法；后续也可以按专题继续检索新的分享内容。
 
 参考教材网站：
 
@@ -23,7 +26,8 @@
 | 入口 | 说明 |
 |---|---|
 | [网页入口](https://yonghengl024-ctrl.github.io/ai-agent-reading-group/) | GitHub Pages 版资料导航 |
-| [章节资料](#内容导航) | 按主题浏览教材、视频、PPT 和实践案例 |
+| [第一期教材章节](#第一期教材导读) | 按章节浏览教材、视频、PPT 和实践案例 |
+| [后续专题](./topics/) | 教材学习完成后的 AI-Agent 专题分享入口 |
 | [上传指南](./UPLOAD_GUIDE.md) | 本地资料提交到 GitHub 的操作步骤 |
 | [贡献说明](./CONTRIBUTING.md) | 文件命名、视频链接、版权检查要求 |
 | [常见问题](./FAQ.md) | 视频、PPT、版权和 GitHub Pages 相关问题 |
@@ -34,6 +38,8 @@
 AI-Agent 相关工具和方法正在快速进入教学、科研、办公自动化、知识管理、金融投研和实证研究等场景。很多使用者面对的主要问题不是缺少概念介绍，而是不知道如何把智能体工具落到具体任务中：如何配置框架、如何写规则文件、如何设计提示词、如何组织 Skills、如何使用子代理和多智能体团队、如何搭建知识库和自动化工作流。
 
 本项目围绕这些实际使用问题组织资料，希望帮助读者从“知道 AI-Agent 是什么”进一步走向“能够用 AI-Agent 完成具体任务”。
+
+第一期内容按照《AI-Agent》教材章节组织；后续内容会按专题组织，避免把不同来源、不同形式的学习分享混在同一个章节体系中。
 
 本项目重点关注三个问题：
 
@@ -62,6 +68,16 @@ chapters/chapter-XX/
 └── examples/   # 可选，实践案例和代码资料
 ```
 
+教材学习完成后的专题分享放在 `topics/` 目录中，每个专题使用独立目录：
+
+```text
+topics/topic-name/
+├── README.md
+├── videos.md
+├── slides/
+└── examples/
+```
+
 根目录中的主要文件：
 
 | 文件 | 作用 |
@@ -70,6 +86,7 @@ chapters/chapter-XX/
 | `UPLOAD_GUIDE.md` | 上传到 GitHub 的操作步骤 |
 | `CONTRIBUTING.md` | 资料提交规范 |
 | `FAQ.md` | 常见问题 |
+| `topics/README.md` | 后续专题分享入口 |
 | `LICENSE` | 授权和版权说明 |
 | `CITATION.cff` | 引用信息 |
 | `docs/index.md` | GitHub Pages 展示页 |
@@ -78,11 +95,12 @@ chapters/chapter-XX/
 
 | 内容 | 状态 |
 |---|---|
-| 章节目录 | 已覆盖第 1 到第 23 章 |
+| 第一期教材导读 | 已覆盖第 1 到第 23 章 |
 | 教材链接 | 已补充 |
 | 讲解视频链接 | 已补充 16/23 |
 | PPT/HTML | 已补充第 9-10、12、13、14、18 章 |
 | 实践案例 | 已补充第 13、14 章 |
+| 后续专题分享 | 将按主题持续添加到 `topics/` |
 | 学习笔记 | 有内容时按章节添加 |
 | GitHub Pages | 已开启 |
 
@@ -92,7 +110,18 @@ chapters/chapter-XX/
 第8章、第15章、第16章、第20章、第21章、第22章、第23章
 ```
 
-## 内容导航
+## 后续扩展
+
+本仓库不是一次性的教材配套仓库。第一期教材学习完成后，后续 AI-Agent 相关分享会按专题继续沉淀，例如：
+
+- AI-Agent 工具实操和工作流模板
+- 教学、科研、办公、金融、知识管理等场景案例
+- 新工具、新框架或重要论文的分享资料
+- 可复用的提示词、规则文件、Skills、Hooks 和自动化方案
+
+这类内容优先放入 `topics/`，每个专题使用独立目录维护 README、视频链接、PPT/HTML/PDF 和实践案例，避免与当前 23 章教材目录混在一起。
+
+## 第一期教材导读
 
 | 章节 | 主题 | 资料入口 | 教材 |
 |---|---|---|---|
