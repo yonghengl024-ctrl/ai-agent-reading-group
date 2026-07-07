@@ -1,0 +1,283 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1.2in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{microtype}
+\usepackage[authoryear,round]{natbib}
+\usepackage{xcolor}
+\definecolor{linkgreen}{RGB}{0,120,100}
+\usepackage[colorlinks=true,linkcolor=linkgreen,citecolor=linkgreen,urlcolor=linkgreen]{hyperref}
+
+% Use \Large (not default \LARGE) so title fits in 2 lines
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{center}%
+    {\Large\bfseries \@title \par}%
+    \vskip 1.5em%
+    {\normalsize \@author \par}%
+    \vskip 0.8em%
+    {\normalsize \@date}%
+  \end{center}%
+  \vskip 2em%
+}
+\makeatother
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\title{Quality Upgrading and Consumer Utility: A Theoretical Framework}
+\author{%
+  \texttt{pAI-Econ-claude} (\texttt{theoretical-economics-claude-skill})\\[4pt]
+  \small\url{https://github.com/maxwell2732/pAI-Econ-claude}\\[2pt]
+  \small Claude Sonnet 4.6%
+}
+\date{Draft: June 18, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper studies when product quality upgrading improves consumer utility and when it reallocates surplus across consumers. I develop a stylized monopoly model in which a firm chooses product quality and price, while consumers differ in their valuation of quality and decide whether to purchase. The model decomposes the consumer-surplus effect of a quality upgrade into direct quality gains, price pass-through, and participation effects. In an interior coverage region, a marginal upgrade raises consumer surplus if and only if the average quality valuation among current buyers exceeds price pass-through scaled by marginal quality utility. The model also identifies a marginal wedge between private and planner valuations of quality. The central message is that quality upgrading is a distributional event, not merely a technical improvement.
+\end{abstract}
+
+\section{Introduction}
+
+Product quality upgrading is often treated as an unambiguous improvement for consumers. A better product appears to offer more value, and higher quality seems naturally aligned with higher welfare. This reasoning is incomplete. In markets where firms choose both quality and price, a quality upgrade changes not only what consumers receive but also what they pay and whether they remain in the market.
+
+This paper asks when a product quality upgrade raises consumer utility and when it lowers consumer surplus for some consumers through price and participation effects. The question is theoretical. The paper studies a stylized market, not a named industry or policy episode. Its purpose is to separate the channels through which objective quality changes become consumer welfare changes.
+
+The difficulty is that quality affects consumers through several channels at once. A higher-quality product raises gross utility. If higher quality is costly, however, the firm may raise price. The new quality-price pair can also move the participation margin, creating entrants and exiters. A model is useful because these channels can point in different directions.
+
+I study a stylized monopoly quality-pricing model with heterogeneous consumers and endogenous participation. A firm chooses quality $q$ and price $p$. A consumer of type $\theta$ obtains utility $\theta v(q)-p$ if she purchases and zero otherwise. The firm knows the distribution of $\theta$ but not each individual type, and consumers buy when their net utility is nonnegative.
+
+The main results are threefold. First, among consumers who continue buying, a quality upgrade creates a gain threshold: high valuation consumers gain, while low valuation consumers can lose if price pass-through is large. Second, in an interior coverage region, a marginal quality upgrade raises aggregate consumer surplus if and only if the average quality valuation among current buyers times marginal quality utility exceeds price pass-through. Third, under fixed coverage, a firm values marginal quality through the marginal buyer, while a total-surplus planner values it through the average served buyer. Under explicit pass-through conditions, objective quality can rise while low-valuation buyers lose and aggregate consumer surplus falls.
+
+The central insight is that quality upgrading is a distributional event. Higher quality raises gross utility, but prices and participation determine who actually gains. The same upgrade can benefit high-valuation buyers, harm low-valuation continuing buyers, and exclude marginal consumers.
+
+The closest verified theoretical ancestor is the monopoly product-quality framework of \citet{MussaRosen1978}. This paper uses that vertical-quality tradition to organize a narrower question: how a quality upgrade maps into consumer utility through quality benefits, price pass-through, and participation. Other related streams include vertical differentiation, price discrimination, consumer surplus analysis, and quality regulation, but no additional specific citations are included because they were not verified in the current session.
+
+The rest of the paper is organized as follows. Section 2 presents the model. Section 3 contains the main results. Section 4 discusses robustness, boundary cases, and extensions. Section 5 concludes. Proof sketches are collected in the Appendix.
+
+\section{Model}
+
+\subsection{Environment}
+
+There is one firm, denoted by $F$, and a unit mass of consumers. Consumers are indexed by a type $\theta\in\Theta=[\underline\theta,\overline\theta]$, where $0<\underline\theta<\overline\theta<\infty$. The type $\theta$ measures the consumer's marginal valuation of quality. Types are distributed according to a continuously differentiable distribution function $F(\theta)$ with density $f(\theta)>0$ on $\Theta$.
+
+The firm chooses a quality-price pair $(q,p)$ from $Q\times P$, where $Q=[0,\overline q]$ and $P=[0,\overline p]$. Consumers observe $(q,p)$ and then choose whether to buy one unit of the product.
+
+\subsection{Preferences and Payoffs}
+
+Quality enters consumer utility through a function $v:Q\to\mathbb R_+$ satisfying $v(0)=0$, $v'(q)>0$, and $v''(q)\leq 0$ where differentiable. A type-$\theta$ consumer who buys obtains
+\[
+ u(\theta,q,p)=\theta v(q)-p.
+\]
+A consumer who does not buy obtains zero.
+
+The firm's unit production cost is $c(q)$ and its fixed quality cost is $K(q)$. I assume $c'(q)\geq 0$, $K(0)=0$, $K'(q)\geq 0$, and $K''(q)>0$ where differentiable. Given demand $D(q,p)$, firm profit is
+\[
+ \Pi(q,p)=[p-c(q)]D(q,p)-K(q).
+\]
+
+For $v(q)>0$, the interior purchase cutoff is
+\[
+ \theta^*(q,p)=\frac{p}{v(q)}.
+\]
+If $\theta^*(q,p)\in[\underline\theta,\overline\theta]$, demand is
+\[
+ D(q,p)=1-F(\theta^*(q,p)).
+\]
+Boundary cases are interpreted in the natural way: all consumers buy if the cutoff is below $\underline\theta$, and no consumer buys if it is above $\overline\theta$.
+
+\subsection{Assumptions}
+
+\begin{assumption}[Market power]
+The firm chooses both product quality and price. This captures a stylized market in which a seller has enough market power for quality and price to be strategic objects.
+\end{assumption}
+
+\begin{assumption}[Vertical quality]
+Quality is one-dimensional and vertically ranked. This isolates the quality-upgrading channel from horizontal taste mismatch.
+\end{assumption}
+
+\begin{assumption}[Heterogeneous quality valuation]
+Consumers differ only in $\theta$, their valuation of quality. This is the source of distributional effects.
+\end{assumption}
+
+\begin{assumption}[Quasilinear utility]
+Utility is quasilinear in price. This allows quality gains and price changes to be compared directly in consumer surplus.
+\end{assumption}
+
+\begin{assumption}[Observable quality and commitment]
+Quality and price are observed before purchase, and the firm commits to them. This keeps the baseline distinct from signaling, reputation, or adverse-selection models.
+\end{assumption}
+
+\subsection{Equilibrium Concept}
+
+The equilibrium concept is subgame perfect equilibrium. Consumers best respond after observing $(q,p)$. The firm anticipates the induced demand and chooses a profit-maximizing quality-price pair. Thus an equilibrium quality-price pair satisfies
+\[
+ (q^M,p^M)\in\arg\max_{(q,p)\in Q\times P}\Pi(q,p),
+\]
+and consumers buy if and only if $\theta v(q^M)-p^M\geq 0$.
+
+\subsection{Welfare Benchmarks}
+
+Consumer surplus at $(q,p)$ is
+\[
+ CS(q,p)=\int_{\{\theta:\theta v(q)-p\geq 0\}}[\theta v(q)-p]f(\theta)d\theta.
+\]
+Total surplus is
+\[
+ TS(q,p)=\int_{\{\theta:\theta v(q)-p\geq 0\}}[\theta v(q)-c(q)]f(\theta)d\theta-K(q).
+\]
+A first-best planner chooses quality and a served set to maximize total surplus. The planner benchmark is used only for comparison; the planner is not a player in the market game.
+
+\section{Results}
+
+\subsection{Equilibrium and Basic Characterization}
+
+\begin{proposition}[Equilibrium existence]
+Suppose the feasible set $Q\times P$ is compact, consumer utility is as specified above, and the induced profit function is continuous on the feasible set. Then there exists a subgame perfect equilibrium. In any such equilibrium, consumers purchase if and only if $\theta v(q^M)-p^M\geq 0$ and the firm chooses $(q^M,p^M)\in\arg\max\Pi(q,p)$.
+\end{proposition}
+
+The proposition provides the object studied in the rest of the paper. It does not claim uniqueness or novelty. Its role is to ensure that quality-price choices and consumer participation are jointly determined in a coherent equilibrium.
+
+\begin{proposition}[Conditional uniqueness]
+If the induced profit function $\Pi(q,p)$ is strictly quasi-concave on $Q\times P$, then the equilibrium quality-price pair is unique. Consumer purchase decisions are unique except possibly for the cutoff type, which has measure zero under a continuous type distribution.
+\end{proposition}
+
+Strict quasi-concavity is a sufficient condition, not a maintained claim about all quality markets. When it holds, comparative statics can be interpreted along a single quality-price path.
+
+\subsection{Quality Upgrading and Consumer Surplus}
+
+Consider two regimes $(q_0,p_0)$ and $(q_1,p_1)$ with $q_1>q_0$. Let $\Delta v=v(q_1)-v(q_0)>0$ and $\Delta p=p_1-p_0$.
+
+\begin{proposition}[Individual gain threshold]
+For any consumer type that buys in both regimes, the change in net utility is
+\[
+ \Delta u_\theta=\theta\Delta v-\Delta p.
+\]
+Thus the consumer gains if and only if $\theta>\theta^G\equiv\Delta p/\Delta v$.
+\end{proposition}
+
+The same objective quality improvement has different welfare effects across consumers. Quality gains scale with $\theta$, while the price increase is common across continuing buyers.
+
+\begin{proposition}[Quality-utility decomposition]
+Let $B_i=\{\theta:\theta v(q_i)-p_i\geq 0\}$ for $i=0,1$. Define continuing buyers $B_{01}=B_0\cap B_1$, entrants $E=B_1\setminus B_0$, and exiters $X=B_0\setminus B_1$. Then
+\[
+\begin{aligned}
+\Delta CS
+=&\int_{B_{01}}\left[\theta(v(q_1)-v(q_0))-(p_1-p_0)\right]f(\theta)d\theta\\
+&+\int_E [\theta v(q_1)-p_1]f(\theta)d\theta
+-\int_X [\theta v(q_0)-p_0]f(\theta)d\theta.
+\end{aligned}
+\]
+\end{proposition}
+
+This decomposition is the accounting spine of the paper. It separates direct quality gains, price losses, and participation effects.
+
+\begin{proposition}[Consumer-surplus threshold]
+Let $p(q)$ be differentiable and suppose the participation cutoff $\theta^*(q)=p(q)/v(q)$ lies in $(\underline\theta,\overline\theta)$. Then
+\[
+ \frac{dCS(q,p(q))}{dq}=D(q,p(q))\left(\mathbb E[\theta\mid\theta\geq\theta^*(q)]v'(q)-p'(q)\right).
+\]
+Therefore, in the interior coverage region, a marginal quality upgrade raises consumer surplus if and only if
+\[
+ \mathbb E[\theta\mid\theta\geq\theta^*(q)]v'(q)>p'(q).
+\]
+\end{proposition}
+
+The key object is the average valuation among current buyers, not only the marginal buyer. The marginal buyer determines the cutoff, but the boundary term vanishes because that buyer receives zero surplus.
+
+\begin{remark}[Boundary coverage]
+The consumer-surplus threshold is stated for interior coverage. If all consumers buy or no consumers buy, the derivative must be written using the relevant boundary purchase set.
+\end{remark}
+
+\subsection{Welfare Wedges and Distribution}
+
+\begin{proposition}[Firm-planner marginal quality wedge]
+Fix an interior served set $[\theta^*,\overline\theta]$ with demand $D=1-F(\theta^*)$. Let $\bar\theta(\theta^*)=\mathbb E[\theta\mid\theta\geq\theta^*]$. At a common quality $q$, the planner's marginal valuation of quality exceeds the firm's marginal valuation by
+\[
+ D[\bar\theta(\theta^*)-\theta^*]v'(q),
+\]
+provided the served type distribution is nondegenerate.
+\end{proposition}
+
+This is a marginal wedge result. It does not by itself imply that the firm always chooses lower quality than the planner. A global ordering requires additional curvature or single-peakedness assumptions.
+
+\begin{proposition}[Distributional welfare reversal under pass-through]
+Under a quality-price comparison with $q_1>q_0$ and sufficiently high price pass-through, there exist parameter values such that quality rises, some high-valuation continuing buyers gain, some low-valuation continuing buyers lose, and aggregate consumer surplus falls.
+\end{proposition}
+
+This proposition is a pass-through comparison. It does not claim that every firm-reoptimized quality upgrade has this property. The result shows that objective quality improvement and consumer welfare improvement are distinct theoretical objects.
+
+\begin{proposition}[Boundary cases]
+If consumers are homogeneous, quality upgrading creates no type-based distributional split among continuing buyers. If $\theta^G=\Delta p/\Delta v$ approaches $\overline\theta$ and the type distribution has no atom at $\overline\theta$, the measure of continuing buyers who gain approaches zero.
+\end{proposition}
+
+Heterogeneity is therefore not a technical detail. It is the source of the distributional stakes of quality upgrading.
+
+\section{Discussion}
+
+The model's strongest result is the consumer-surplus threshold in the interior coverage region. It gives a simple test: compare average buyer valuation times marginal quality utility to price pass-through. The result should not be applied mechanically outside interior coverage.
+
+The firm-planner comparison should be interpreted as a marginal wedge. At a fixed served set, the firm values quality through the marginal buyer, whereas the planner values quality through all served buyers. A global quality ranking requires additional curvature conditions.
+
+The distributional reversal should be read as a pass-through result. It says that if price pass-through is sufficiently high, quality can rise while consumer surplus falls. A stronger version would derive the required pass-through from a fully reoptimized firm problem; that extension is left as a formalization target.
+
+Several extensions are natural. A full screening model would allow a menu of quality versions. An oligopoly model would introduce strategic quality competition. A model of unobservable quality would add certification, reputation, or signaling. A richer consumer model would allow income constraints and multidimensional types.
+
+\section{Conclusion}
+
+This paper develops a stylized framework for linking product quality upgrading to consumer utility. The model shows that a quality upgrade affects consumer surplus through direct quality gains, price pass-through, and participation changes. In an interior coverage region, consumer surplus rises only when current buyers' average marginal valuation of quality exceeds price pass-through. Under fixed coverage, private and social marginal valuations of quality can diverge because firms focus on marginal buyers while planners count all served buyers.
+
+The broader message is that better products do not automatically imply better consumer outcomes. Quality upgrading changes who gains, who loses, and who remains in the market. A theory of quality upgrading must therefore track prices and participation as carefully as it tracks quality itself.
+
+\appendix
+\section{Proof Sketches}
+
+\subsection*{Proof sketch of Proposition 1}
+Given $(q,p)$, each consumer chooses the larger of $\theta v(q)-p$ and zero. This yields the cutoff demand rule. If the induced profit function is continuous on compact $Q\times P$, Weierstrass' theorem gives a maximizer. The firm choosing that maximizer and consumers using the cutoff rule constitute a subgame perfect equilibrium. A complete proof should specify tie-breaking at $(q,p)=(0,0)$ and ensure profit continuity at boundary coverage cases.
+
+\subsection*{Proof sketch of Proposition 2}
+Existence follows from Proposition 1. Strict quasi-concavity of $\Pi$ rules out two distinct global maximizers. Consumer strategies are unique except at the cutoff type, which has measure zero under a continuous type distribution.
+
+\subsection*{Proof sketch of Proposition 3}
+For a continuing buyer, subtract utility across regimes:
+\[
+[\theta v(q_1)-p_1]-[\theta v(q_0)-p_0]=\theta\Delta v-\Delta p.
+\]
+Since $\Delta v>0$, the sign is positive if and only if $\theta>\Delta p/\Delta v$.
+
+\subsection*{Proof sketch of Proposition 4}
+Decompose the type space into continuing buyers, entrants, exiters, and continuing nonbuyers. Continuing nonbuyers contribute zero in both regimes. Subtract the consumer-surplus integrals on the remaining three sets to obtain the stated expression.
+
+\subsection*{Proof sketch of Proposition 5}
+In the interior region,
+\[
+ CS(q)=\int_{\theta^*(q)}^{\overline\theta}[\theta v(q)-p(q)]f(\theta)d\theta.
+\]
+By Leibniz' rule, differentiating gives an integral term and a boundary term. The boundary term is zero because the cutoff type has zero net utility. Rearranging gives the stated threshold.
+
+\subsection*{Proof sketch of Proposition 6}
+With served set $[\theta^*,\overline\theta]$, the planner's marginal quality benefit is $D\bar\theta(\theta^*)v'(q)$, while the firm, pricing at the marginal buyer under fixed coverage, values marginal quality at $D\theta^*v'(q)$. The difference is $D[\bar\theta(\theta^*)-\theta^*]v'(q)$, which is positive under a nondegenerate served distribution.
+
+\subsection*{Proof sketch of Proposition 7}
+The individual threshold result implies that if $\Delta p/\Delta v$ lies inside the continuing buyer set, some continuing buyers gain and others lose. If pass-through is sufficiently high relative to the distribution of quality valuations, the aggregate losses and exit effects can exceed high-type gains. A complete proof should supply an explicit numerical example or sufficient inequality.
+
+\subsection*{Proof sketch of Proposition 8}
+If all consumers have the same type, all continuing buyers have the same sign of $\theta\Delta v-\Delta p$. If $\theta^G\uparrow\overline\theta$, then under a continuous distribution without a top atom, the measure of types above $\theta^G$ converges to zero.
+
+\begin{thebibliography}{1}
+
+\bibitem[Mussa and Rosen(1978)]{MussaRosen1978}
+Mussa, Michael, and Sherwin Rosen. 1978. ``Monopoly and Product Quality.'' \emph{Journal of Economic Theory} 18(2): 301--317. \href{https://doi.org/10.1016/0022-0531(78)90085-6}{doi:10.1016/0022-0531(78)90085-6}.
+
+\end{thebibliography}
+
+\end{document}

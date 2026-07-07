@@ -74,7 +74,7 @@ chapters/chapter-XX/
 | 章节目录 | 已覆盖第 1 到第 23 章 |
 | 教材链接 | 已补充 |
 | 讲解视频链接 | 部分已补充 |
-| PPT/PDF | 待上传 |
+| PPT/PDF | 部分已上传 |
 | 学习笔记 | 待完善 |
 | GitHub Pages | 已开启 |
 

@@ -1,0 +1,48 @@
+{
+  "snapshot_time": "2026-06-18 19:12:42",
+  "source": "中国证监会资本市场统一信息披露平台",
+  "source_index_url": "http://eid.csrc.gov.cn/fund/disclose/index.html",
+  "source_data_url": "http://eid.csrc.gov.cn/fund/disclose/indexDailyReportData.json",
+  "previous_snapshot": "data/nav-history/2026-06-18-19-1.json",
+  "items": [
+    {
+      "fund_code": "008079",
+      "fund_name": "诺德大类精选（FOF）",
+      "current_nav": 1.5227,
+      "total_nav": 1.5227,
+      "gain_per": null,
+      "seven_day_annualized_yield": null,
+      "nav_date": "2026-06-17",
+      "updated_at": "2026-06-18 19:12:42",
+      "source_url": "http://eid.csrc.gov.cn/fund/disclose/fund_detail.do?fundId=6821",
+      "source_data_url": "http://eid.csrc.gov.cn/fund/disclose/indexDailyReportData.json",
+      "threshold_pct": 2.5,
+      "watchlist_name": "诺德大类精选（FOF）",
+      "watchlist_url": "http://eid.csrc.gov.cn/fund/disclose/fund_detail.do?fundId=6821",
+      "previous_nav": 1.5227,
+      "change_from_previous_pct": 0.0
+    }
+  ],
+  "errors": [
+    {
+      "fund_code": "000216",
+      "fund_name": "华安黄金ETF联接A",
+      "error": "{\r\n  \"fund_code\": \"000216\",\r\n  \"error\": \"证监会披露平台当前首页净值数据中未找到基金代码：000216\"\r\n}"
+    },
+    {
+      "fund_code": "000217",
+      "fund_name": "华安黄金ETF联接C",
+      "error": "{\r\n  \"fund_code\": \"000217\",\r\n  \"error\": \"证监会披露平台当前首页净值数据中未找到基金代码：000217\"\r\n}"
+    },
+    {
+      "fund_code": "022653",
+      "fund_name": "华安黄金ETF联接I",
+      "error": "{\r\n  \"fund_code\": \"022653\",\r\n  \"error\": \"证监会披露平台当前首页净值数据中未找到基金代码：022653\"\r\n}"
+    },
+    {
+      "fund_code": "518880",
+      "fund_name": "华安黄金ETF",
+      "error": "{\r\n  \"fund_code\": \"518880\",\r\n  \"error\": \"证监会披露平台当前首页净值数据中未找到基金代码：518880\"\r\n}"
+    }
+  ]
+}

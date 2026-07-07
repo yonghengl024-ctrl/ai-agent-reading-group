@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<!-- saved from url=(0231)file:///F:/Desktop/AI%E4%BD%BF%E7%94%A8/2026.6.18AI%E4%BD%BF%E7%94%A813-14%E7%AB%A0/%E7%AC%AC14%E7%AB%A0%E9%AB%98%E9%98%B6%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7_%E8%AF%A6%E7%BB%86%E7%89%88HTML%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第14章 高阶使用技巧｜详细版HTML演示文稿</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --bg2: #172033;
+    --blue: #38bdf8;
+    --blue2: #0284c7;
+    --orange: #fb923c;
+    --yellow: #fbbf24;
+    --text: #f8fafc;
+    --muted: #cbd5e1;
+    --line: rgba(255,255,255,.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+  }
+  .progress {
+    position: fixed; top: 0; left: 0; height: 5px; width: 0%;
+    background: linear-gradient(90deg, var(--blue), var(--orange), var(--yellow));
+    z-index: 999; transition: width .35s ease;
+  }
+  .deck {
+    display: flex;
+    width: 2200vw;
+    height: 100vh;
+    transition: transform .62s cubic-bezier(.22,.8,.24,1);
+  }
+  .slide {
+    width: 100vw;
+    height: 100vh;
+    padding: 54px 72px 70px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+      radial-gradient(circle at 12% 10%, rgba(56,189,248,.23), transparent 25%),
+      radial-gradient(circle at 88% 15%, rgba(251,146,60,.18), transparent 24%),
+      linear-gradient(135deg, #0f172a 0%, #172033 46%, #1e293b 100%);
+  }
+  .slide.light {
+    color: #0f172a;
+    background:
+      radial-gradient(circle at 8% 18%, rgba(14,165,233,.15), transparent 28%),
+      radial-gradient(circle at 86% 12%, rgba(251,146,60,.12), transparent 24%),
+      linear-gradient(135deg, #f8fafc 0%, #eef4ff 100%);
+  }
+  h1 {
+    font-size: 72px;
+    line-height: 1.12;
+    letter-spacing: -1.2px;
+    margin-bottom: 18px;
+  }
+  h2 {
+    font-size: 44px;
+    color: var(--blue);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .light h2 { color: #0f3b68; }
+  h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: var(--yellow);
+  }
+  .light h3 { color: #c2410c; }
+  p, li {
+    font-size: 23px;
+    line-height: 1.62;
+    color: #e2e8f0;
+  }
+  .light p, .light li { color: #263445; }
+  ul { padding-left: 30px; }
+  code {
+    font-family: Consolas, Menlo, Monaco, monospace;
+    background: rgba(148,163,184,.18);
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: .9em;
+  }
+  .tag {
+    display: inline-flex;
+    width: fit-content;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 999px;
+    background: rgba(255,255,255,.08);
+    color: #bae6fd;
+    font-size: 19px;
+    margin-bottom: 22px;
+  }
+  .light .tag {
+    color: #0369a1;
+    border-color: rgba(3,105,161,.22);
+    background: rgba(14,165,233,.08);
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 30px;
+    margin-bottom: 14px;
+  }
+  .light .subtitle { color: #475569; }
+  .card {
+    background: rgba(255,255,255,.085);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 26px;
+    padding: 27px 31px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.20);
+    backdrop-filter: blur(12px);
+  }
+  .light .card {
+    background: rgba(255,255,255,.82);
+    border-color: rgba(15,23,42,.08);
+    box-shadow: 0 18px 48px rgba(15,23,42,.10);
+  }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 23px; margin-top: 24px; }
+  .grid.three { grid-template-columns: repeat(3, 1fr); }
+  .grid.four { grid-template-columns: repeat(4, 1fr); }
+  .mini {
+    padding: 23px;
+    border-radius: 22px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .light .mini {
+    background: rgba(255,255,255,.86);
+    border-color: rgba(15,23,42,.08);
+  }
+  .split {
+    display: grid;
+    grid-template-columns: 1.04fr .96fr;
+    gap: 34px;
+    align-items: center;
+  }
+  .split.wide-left { grid-template-columns: 1.18fr .82fr; }
+  .split.wide-right { grid-template-columns: .86fr 1.14fr; }
+  .visual {
+    width: 100%;
+    max-height: 66vh;
+    object-fit: contain;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 18px 50px rgba(0,0,0,.25);
+  }
+  .light .visual { box-shadow: 0 18px 48px rgba(15,23,42,.14); }
+  .code {
+    font-family: Consolas, Menlo, Monaco, monospace;
+    background: rgba(15,23,42,.90);
+    color: #e2e8f0;
+    padding: 18px 22px;
+    border-radius: 16px;
+    border-left: 5px solid var(--orange);
+    margin: 14px 0;
+    font-size: 20px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+  }
+  .light .code { background: #111827; color: #f8fafc; }
+  .highlight { color: var(--blue); font-weight: 800; }
+  .light .highlight { color: var(--blue2); }
+  .orange { color: var(--orange); font-weight: 800; }
+  .muted { color: #94a3b8; }
+  .light .muted { color: #64748b; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    overflow: hidden;
+    border-radius: 18px;
+    font-size: 20px;
+  }
+  th, td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(148,163,184,.24);
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    color: #bae6fd;
+    background: rgba(56,189,248,.12);
+  }
+  .light th {
+    color: #0f3b68;
+    background: rgba(14,165,233,.10);
+  }
+  .quote {
+    border-left: 5px solid var(--blue);
+    padding: 18px 24px;
+    background: rgba(56,189,248,.08);
+    border-radius: 0 18px 18px 0;
+    margin-top: 20px;
+  }
+  .light .quote { background: rgba(14,165,233,.08); }
+  .flow {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 22px;
+  }
+  .step {
+    flex: 1;
+    border-radius: 20px;
+    padding: 20px;
+    background: rgba(255,255,255,.075);
+    border: 1px solid rgba(255,255,255,.12);
+    position: relative;
+  }
+  .light .step {
+    background: rgba(255,255,255,.82);
+    border-color: rgba(15,23,42,.08);
+  }
+  .step:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--orange);
+    font-size: 30px;
+    font-weight: 800;
+  }
+  .num {
+    display: inline-flex; align-items:center; justify-content:center;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--orange));
+    color: white; font-weight: 700; margin-bottom: 10px;
+  }
+  .footer {
+    position: absolute; left: 72px; bottom: 30px;
+    font-size: 16px; color: #94a3b8;
+  }
+  .page {
+    position: absolute; right: 42px; bottom: 30px;
+    font-size: 18px; color: #94a3b8;
+  }
+  .nav {
+    position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+    display: flex; gap: 12px; z-index: 50;
+  }
+  button {
+    border: none; border-radius: 999px;
+    padding: 12px 22px;
+    background: rgba(56,189,248,.86);
+    color: white; font-size: 17px; cursor: pointer;
+    box-shadow: 0 10px 25px rgba(14,165,233,.25);
+  }
+  button:hover { background: #0ea5e9; }
+  .cover { align-items: center; text-align: center; }
+  .cover h1 { max-width: 1080px; }
+  .cover .card { width: 78%; margin-top: 28px; }
+  .agenda {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 20px;
+  }
+  .agenda .mini p { font-size: 21px; }
+  @media (max-width: 900px) {
+    .slide { padding: 42px 30px 76px; }
+    h1 { font-size: 44px; }
+    h2 { font-size: 34px; }
+    p, li { font-size: 19px; }
+    .split, .split.wide-left, .split.wide-right, .grid, .grid.three, .grid.four, .agenda {
+      grid-template-columns: 1fr;
+    }
+    .flow { flex-direction: column; }
+    .step::after { display: none; }
+    .nav { bottom: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress" style="width: 81.8182%;"></div>
+<main class="deck" id="deck" style="transform: translateX(-1700vw);">
+
+<section class="slide cover">
+  <span class="tag">经济金融 AI 智能体设计 · 第14章</span>
+  <h1>高阶使用技巧：从交互对话到自主运转</h1>
+  <p class="subtitle">/loop 定时调度器、TODO.md 异步执行、金融场景中的轻量级自动化</p>
+  <div class="card">
+    <p>本章目标不是单独记住一个命令，而是理解如何把 <span class="highlight">/loop、TODO.md、CLAUDE.md、Hooks</span> 组合成一个可持续运行、可追踪、可干预的轻量级 AI 工作流。</p>
+  </div>
+  <div class="footer">详细版 HTML 演示文稿</div>
+  <div class="page">01 / 22</div>
+</section>
+
+<section class="slide light">
+  <div class="split">
+    <div>
+      <span class="tag">章节导览</span>
+      <h2>第14章在讲什么？</h2>
+      <div class="card">
+        <ul>
+          <li>从“你问我答”走向“AI 自主运转”</li>
+          <li>用 <code>/loop</code> 建立会话级定时任务</li>
+          <li>用 <code>TODO.md</code> 承载长任务与任务状态</li>
+          <li>理解限制、误区与安全边界</li>
+          <li>将方法落到基金监控、研报采集两个金融实践场景</li>
+        </ul>
+      </div>
+    </div>
+    <img class="visual" src="./chapter-14-advanced-usage_files/loop.png">
+  </div>
+  <div class="page">02 / 22</div>
+</section>
+
+<section class="slide">
+  <h2>一、学习目标：从理解到实践</h2>
+  <div class="grid">
+    <div class="mini"><h3>理解</h3><p><code>/loop</code> 的定位是“会话级定时任务调度器”，不是完整生产调度系统。</p></div>
+    <div class="mini"><h3>掌握</h3><p>掌握 <code>/loop</code> 的基本语法、时间间隔格式、一次性提醒和任务管理。</p></div>
+    <div class="mini"><h3>应用</h3><p>把 <code>/loop</code> 与 <code>TODO.md</code> 结合，实现超长任务的异步执行。</p></div>
+    <div class="mini"><h3>辨析</h3><p>识别会话级限制、token 浪费、权限配合和生产化部署边界。</p></div>
+  </div>
+  <div class="quote"><p>核心能力：让 AI 不只“被问才答”，而是在规则、清单和时间触发下持续执行可控任务。</p></div>
+  <div class="page">03 / 22</div>
+</section>
+
+<section class="slide light">
+  <h2>二、AI 工作方式的三个阶段</h2>
+  <div class="grid.three grid">
+    <div class="mini">
+      <h3>1. 被动应答</h3>
+      <p>用户输入问题或指令，Claude 返回结果。适合问答、解释、短任务。</p>
+    </div>
+    <div class="mini">
+      <h3>2. 主动执行</h3>
+      <p>用户给出任务目标，Claude 自主完成多步操作。适合代码修改、数据整理。</p>
+    </div>
+    <div class="mini">
+      <h3>3. 自主运转</h3>
+      <p>Claude 按时间或任务清单持续执行，用户无需一直在场。</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:26px;">
+    <p><span class="highlight">关键变化：</span>人类介入从“每一步都输入”逐渐变为“设定目标、检查结果、必要时干预”。</p>
+  </div>
+  <div class="page">04 / 22</div>
+</section>
+
+<section class="slide">
+  <div class="split">
+    <div>
+      <h2>从对话工具到轻量监控系统</h2>
+      <p>本章的组合思路是把四个模块连接起来：</p>
+      <div class="card" style="margin-top:18px;">
+        <ul>
+          <li><code>/loop</code>：提供定时触发能力</li>
+          <li><code>TODO.md</code>：提供结构化任务清单</li>
+          <li><code>CLAUDE.md</code>：提供长期规则、项目知识和口径约束</li>
+          <li><code>Hooks</code>：提供质量门禁、自动检查和自动提交</li>
+        </ul>
+      </div>
+    </div>
+    <img class="visual" src="./chapter-14-advanced-usage_files/loop1.png">
+  </div>
+  <div class="page">05 / 22</div>
+</section>
+
+<section class="slide light">
+  <h2>三、/loop 是什么？</h2>
+  <div class="card">
+    <p><code>/loop</code> 是 Claude Code 中用于周期性执行任务的内置命令，可以理解为“会话级轮询器”：你用自然语言描述任务，Claude 在当前 session 内按间隔重复执行。</p>
+  </div>
+  <div class="code">/loop [时间间隔] &lt;任务描述&gt;</div>
+  <div class="grid">
+    <div class="mini">
+      <h3>适合做什么</h3>
+      <ul>
+        <li>定时检查文件或目录变化</li>
+        <li>定时采集数据并写入摘要</li>
+        <li>定时检查 CI、PR 或任务状态</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h3>不适合做什么</h3>
+      <ul>
+        <li>长期无人值守生产系统</li>
+        <li>高频毫秒级任务</li>
+        <li>权限复杂、失败代价高的自动化</li>
+      </ul>
+    </div>
+  </div>
+  <div class="page">06 / 22</div>
+</section>
+
+<section class="slide">
+  <div class="split wide-left">
+    <div>
+      <h2>/loop 的运行逻辑</h2>
+      <div class="flow">
+        <div class="step"><span class="num">1</span><h3>设定间隔</h3><p>例如 5m、30m、1h、24h。</p></div>
+        <div class="step"><span class="num">2</span><h3>触发任务</h3><p>执行自然语言指令或调用 Skill。</p></div>
+        <div class="step"><span class="num">3</span><h3>等待下轮</h3><p>计时器倒计时，进入下一轮。</p></div>
+      </div>
+      <div class="quote"><p>它的本质是“定时轮询”：不断重复“检查—执行—等待”的循环。</p></div>
+    </div>
+    <img class="visual" src="./chapter-14-advanced-usage_files/loop2.png">
+  </div>
+  <div class="page">07 / 22</div>
+</section>
+
+<section class="slide light">
+  <h2>时间间隔格式</h2>
+  <table>
+    <tbody><tr><th>单位</th><th>缩写</th><th>示例</th><th>适合场景</th></tr>
+    <tr><td>秒</td><td><code>s</code></td><td><code>30s</code></td><td>向上取整到 1 分钟，通常不建议高频使用</td></tr>
+    <tr><td>分钟</td><td><code>m</code></td><td><code>5m</code>、<code>30m</code></td><td>最常用，用于状态检查、数据采集</td></tr>
+    <tr><td>小时</td><td><code>h</code></td><td><code>1h</code>、<code>2h</code></td><td>适合定期巡检、阶段性汇总</td></tr>
+    <tr><td>天</td><td><code>d</code></td><td><code>1d</code></td><td>适合每日汇总、日报生成</td></tr>
+  </tbody></table>
+  <div class="quote"><p>省略时间间隔时，默认约为 10 分钟。底层可转为 cron 表达式，但用户通常无需手写 cron。</p></div>
+  <div class="page">08 / 22</div>
+</section>
+
+<section class="slide">
+  <h2>/loop 用法示例</h2>
+  <div class="grid">
+    <div class="mini">
+      <h3>部署检查</h3>
+      <div class="code">/loop 5m 检查部署是否完成</div>
+      <p>适合等待异步部署、构建或下载任务完成。</p>
+    </div>
+    <div class="mini">
+      <h3>CI / PR 监控</h3>
+      <div class="code">/loop 30m 检查当前分支的 PR，若 CI 失败则读取日志并修复</div>
+      <p>适合研发场景中的质量反馈闭环。</p>
+    </div>
+    <div class="mini">
+      <h3>数据汇总</h3>
+      <div class="code">/loop 1h 读取 data/ 目录最新 CSV，汇总关键指标，写入 daily-summary.md</div>
+      <p>适合金融数据采集和周期性统计。</p>
+    </div>
+    <div class="mini">
+      <h3>每日变更摘要</h3>
+      <div class="code">/loop 24h 总结过去 24 小时 main 分支所有提交</div>
+      <p>适合团队日报、变更日志或复盘材料。</p>
+    </div>
+  </div>
+  <div class="page">09 / 22</div>
+</section>
+
+<section class="slide light">
+  <h2>一次性提醒与任务管理</h2>
+  <div class="grid">
+    <div class="mini">
+      <h3>一次性提醒</h3>
+      <p>除循环任务外，也可以设置一次性提醒，执行后自动删除。</p>
+      <div class="code">remind me at 3pm to push the release branch
+in 45 minutes, check whether the integration tests passed</div>
+    </div>
+    <div class="mini">
+      <h3>任务管理</h3>
+      <p>可以用自然语言查看、取消任务；底层工具包括 CronCreate、CronList、CronDelete。</p>
+      <div class="code">what scheduled tasks do I have?
+cancel the deploy check job</div>
+    </div>
+  </div>
+  <div class="quote"><p>通常不需要直接调用底层工具，用自然语言描述“查看任务”或“取消某任务”即可。</p></div>
+  <div class="page">10 / 22</div>
+</section>
+
+<section class="slide">
+  <h2>/loop 的技术限制</h2>
+  <table>
+    <tbody><tr><th>限制项</th><th>含义</th><th>实践提醒</th></tr>
+    <tr><td>会话级</td><td>绑定当前终端 session</td><td>终端关闭后任务即消失</td></tr>
+    <tr><td>不持久化</td><td>重启后任务清空</td><td>跨重启请用 scheduled tasks 或 GitHub Actions</td></tr>
+    <tr><td>不补跑</td><td>Claude 忙碌时错过触发不会补执行</td><td>适合轻量轮询，不适合强一致调度</td></tr>
+    <tr><td>最多 50 个</td><td>每个 session 同时最多 50 个任务</td><td>避免滥用与重复任务</td></tr>
+    <tr><td>最小粒度</td><td>1 分钟</td><td>不要设计高频秒级任务</td></tr>
+    <tr><td>72 小时过期</td><td>循环任务创建后自动过期</td><td>长期任务需外部调度</td></tr>
+  </tbody></table>
+  <div class="page">11 / 22</div>
+</section>
+
+<section class="slide light">
+  <div class="split">
+    <div>
+      <h2>常见误区与边界</h2>
+      <div class="card">
+        <ul>
+          <li><strong>不是完全无人值守：</strong>会话关闭或任务过期会中断</li>
+          <li><strong>不是生产级调度：</strong>不保证持久化、不保证补跑</li>
+          <li><strong>可能浪费 token：</strong>过于频繁的检查会持续消耗上下文与调用成本</li>
+          <li><strong>权限仍需配置：</strong>文件、网络、工具权限必须提前明确</li>
+        </ul>
+      </div>
+    </div>
+    <img class="visual" src="./chapter-14-advanced-usage_files/loop4.png">
+  </div>
+  <div class="page">12 / 22</div>
+</section>
+
+<section class="slide">
+  <h2>四、/loop + TODO.md：长任务异步执行</h2>
+  <div class="card">
+    <p><code>/loop</code> 负责定时轮询，<code>TODO.md</code> 负责记录结构化任务。两者结合后，用户只需写好清单，Claude 按时间间隔读取、执行、更新状态。</p>
+  </div>
+  <div class="flow">
+    <div class="step"><span class="num">1</span><h3>写清单</h3><p>用户在 TODO.md 中列出任务，状态设为 pending。</p></div>
+    <div class="step"><span class="num">2</span><h3>定时读取</h3><p>/loop 周期性读取清单，找到第一个待处理任务。</p></div>
+    <div class="step"><span class="num">3</span><h3>执行更新</h3><p>Claude 执行任务，并把状态改为 completed 或 in_progress。</p></div>
+    <div class="step"><span class="num">4</span><h3>写入日志</h3><p>把执行结果、时间和异常写入 progress.md。</p></div>
+  </div>
+  <div class="page">13 / 22</div>
+</section>
+
+<section class="slide light">
+  <div class="split wide-left">
+    <div>
+      <h2>TODO.md 任务清单示例</h2>
+      <div class="code"># 任务清单
+
+## task-001
+- 状态: completed
+- 描述: 下载沪深300成分股列表，保存到 data/hs300.csv
+- 完成时间: 2026-03-14 10:32
+
+## task-002
+- 状态: in_progress
+- 描述: 从东方财富抓取最新一季度基金持仓数据
+
+## task-003
+- 状态: pending
+- 描述: 对比上季度和本季度持仓变动，生成增减仓分析报告</div>
+      <p>任务粒度应控制在 Claude 单次执行能够完成的范围内，通常建议 5—15 分钟内可完成。</p>
+    </div>
+    <img class="visual" src="./chapter-14-advanced-usage_files/loop3.png">
+  </div>
+  <div class="page">14 / 22</div>
+</section>
+
+<section class="slide">
+  <h2>异步模式：用户与 AI 的时间解耦</h2>
+  <table>
+    <tbody><tr><th>维度</th><th>传统同步模式</th><th>/loop 异步模式</th></tr>
+    <tr><td>工作流</td><td>用户输入 → AI 执行 → 用户查看 → 下一个</td><td>用户写清单 → AI 后台循环执行</td></tr>
+    <tr><td>用户是否在场</td><td>必须在场等待</td><td>写完清单后可以离开</td></tr>
+    <tr><td>任务追加</td><td>前一任务完成后才能下达</td><td>随时往文件中追加新任务</td></tr>
+    <tr><td>适合场景</td><td>需要实时反馈的交互</td><td>批量处理、定时采集、夜间跑任务</td></tr>
+  </tbody></table>
+  <div class="quote"><p>在金融研究场景中，这种模式尤其适合“晚上跑数据，第二天看结果”。</p></div>
+  <div class="page">15 / 22</div>
+</section>
+
+<section class="slide light">
+  <h2>多终端并行：多个 Claude Code Session 协同</h2>
+  <div class="grid">
+    <div class="mini">
+      <h3>终端 1：舆情监控</h3>
+      <div class="code">cd ~/sentiment-monitor &amp;&amp; claude --dangerously-skip-permissions
+/loop 30m 检查 news/ 目录是否有新文件，更新 sentiment-log.csv</div>
+    </div>
+    <div class="mini">
+      <h3>终端 2：数据采集</h3>
+      <div class="code">cd ~/macro-data &amp;&amp; claude --dangerously-skip-permissions
+/loop 1h 读取 TODO.md，执行下一个 pending 任务</div>
+    </div>
+  </div>
+  <div class="quote"><p>结合 tmux 分屏，可以在一个界面同时观察多个 Claude Code session 的运行状态。</p></div>
+  <div class="page">16 / 22</div>
+</section>
+
+<section class="slide">
+  <h2>三层架构：让任务更稳定</h2>
+  <div class="grid.three grid">
+    <div class="mini">
+      <h3>CLAUDE.md</h3>
+      <p>提供长期规则、项目背景、输出格式、禁止事项和金融分析口径。</p>
+    </div>
+    <div class="mini">
+      <h3>TODO.md</h3>
+      <p>提供任务队列、任务状态和可追踪的执行顺序。</p>
+    </div>
+    <div class="mini">
+      <h3>/loop</h3>
+      <p>提供定时轮询机制，把任务从同步等待转为异步推进。</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:24px;">
+    <p>如果进一步加入 Hooks，可在每次执行后自动检查输出质量、记录日志或触发提交。</p>
+  </div>
+  <div class="page">17 / 22</div>
+</section>
+
+<section class="slide light">
+  <div class="split">
+    <div>
+      <span class="tag">金融场景一</span>
+      <h2>基金净值监控与异常预警</h2>
+      <p>目标：定期读取基金净值、计算变化、识别异常波动，并形成可复盘的监控记录。</p>
+      <div class="card" style="margin-top:20px;">
+        <ul>
+          <li>定时读取净值数据</li>
+          <li>计算涨跌幅与异常阈值</li>
+          <li>生成预警记录</li>
+          <li>每日汇总为报告文件</li>
+        </ul>
+      </div>
+    </div>
+    <img class="visual" src="./chapter-14-advanced-usage_files/loop5.png">
+  </div>
+  <div class="page">18 / 22</div>
+</section>
+
+<section class="slide">
+  <h2>基金净值监控：推荐配置</h2>
+  <div class="grid">
+    <div class="mini">
+      <h3>CLAUDE.md 规则</h3>
+      <ul>
+        <li>定义数据源路径</li>
+        <li>规定异常阈值</li>
+        <li>统一输出格式</li>
+        <li>禁止在缺失数据时编造结论</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h3>/loop 任务</h3>
+      <div class="code">/loop 1h 读取 data/fund_nav.csv，检查基金净值变化；若单日波动超过阈值，写入 alerts.md，并更新 daily-summary.md</div>
+    </div>
+  </div>
+  <div class="quote"><p>这个场景的关键不是“自动投资决策”，而是自动完成监测、记录和初步预警，最终判断仍应由人工负责。</p></div>
+  <div class="page">19 / 22</div>
+</section>
+
+<section class="slide light">
+  <div class="split">
+    <div>
+      <span class="tag">金融场景二</span>
+      <h2>研报素材采集与整理</h2>
+      <p>目标：自动收集新闻、指标、公司公告和宏观资料，形成第二天可直接使用的研报素材库。</p>
+      <div class="card" style="margin-top:20px;">
+        <ul>
+          <li>按主题读取指定目录</li>
+          <li>筛选新增资料</li>
+          <li>生成素材摘要</li>
+          <li>沉淀到 Markdown 或 CSV</li>
+        </ul>
+      </div>
+    </div>
+    <img class="visual" src="./chapter-14-advanced-usage_files/loop6.png">
+  </div>
+  <div class="page">20 / 22</div>
+</section>
+
+<section class="slide">
+  <h2>研报素材采集：推荐工作流</h2>
+  <div class="flow">
+    <div class="step"><span class="num">1</span><h3>建立素材目录</h3><p>如 news/、macro/、industry/、company/。</p></div>
+    <div class="step"><span class="num">2</span><h3>定时检查</h3><p>用 /loop 读取新增文件或数据源。</p></div>
+    <div class="step"><span class="num">3</span><h3>摘要整理</h3><p>按主题生成 bullets、关键词和风险提示。</p></div>
+    <div class="step"><span class="num">4</span><h3>人工复核</h3><p>第二天人工筛选、补充和写作。</p></div>
+  </div>
+  <div class="code">/loop 30m 检查 news/ 与 macro/ 是否有新增材料，提取与“利率、汇率、通胀、产业政策”相关的信息，写入 research-materials.md</div>
+  <div class="page">21 / 22</div>
+</section>
+
+<section class="slide light">
+  <h2>小结：第14章的核心 takeaway</h2>
+  <div class="grid">
+    <div class="mini">
+      <h3>1. /loop 是轻量调度器</h3>
+      <p>适合短周期、会话级、低风险的定时任务。</p>
+    </div>
+    <div class="mini">
+      <h3>2. TODO.md 是任务队列</h3>
+      <p>让超长任务可拆解、可轮询、可追踪。</p>
+    </div>
+    <div class="mini">
+      <h3>3. 异步模式提升效率</h3>
+      <p>用户不必等待每个任务完成，可以让 AI 后台推进。</p>
+    </div>
+    <div class="mini">
+      <h3>4. 金融场景要重视边界</h3>
+      <p>适合监控、采集、整理，不应替代人工判断和合规审核。</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:26px;">
+    <p><strong>讨论题：</strong>如果要把 /loop 用于你的研究项目，哪些任务适合自动化？哪些任务必须保留人工复核？</p>
+  </div>
+  <div class="page">22 / 22</div>
+</section>
+
+</main>
+
+<div class="nav">
+  <button onclick="prevSlide()">上一页</button>
+  <button onclick="nextSlide()">下一页</button>
+</div>
+
+<script>
+  let current = 0;
+  const deck = document.getElementById("deck");
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const total = slides.length;
+  const progress = document.getElementById("progress");
+
+  function update() {
+    deck.style.transform = `translateX(-${current * 100}vw)`;
+    progress.style.width = `${((current + 1) / total) * 100}%`;
+  }
+
+  function nextSlide() {
+    if (current < total - 1) {
+      current++;
+      update();
+    }
+  }
+
+  function prevSlide() {
+    if (current > 0) {
+      current--;
+      update();
+    }
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (["ArrowRight", "PageDown", " "].includes(event.key)) nextSlide();
+    if (["ArrowLeft", "PageUp"].includes(event.key)) prevSlide();
+    if (event.key === "Home") { current = 0; update(); }
+    if (event.key === "End") { current = total - 1; update(); }
+  });
+
+  update();
+</script>
+
+
+</body>
+</html>

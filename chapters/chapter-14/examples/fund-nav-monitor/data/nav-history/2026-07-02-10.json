@@ -1,0 +1,35 @@
+{
+  "snapshot_time": "2026-07-02 10:23:47",
+  "source": "中国证监会资本市场统一信息披露平台",
+  "source_index_url": "http://eid.csrc.gov.cn/fund/disclose/index.html",
+  "source_data_url": "http://eid.csrc.gov.cn/fund/disclose/indexDailyReportData.json",
+  "previous_snapshot": "data/nav-history/2026-06-18-20.json",
+  "items": [],
+  "errors": [
+    {
+      "fund_code": "000216",
+      "fund_name": "华安黄金ETF联接A",
+      "error": "{\r\n  \"fund_code\": \"000216\",\r\n  \"error\": \"证监会披露平台 HTTP 错误：502 Bad Gateway\"\r\n}"
+    },
+    {
+      "fund_code": "000217",
+      "fund_name": "华安黄金ETF联接C",
+      "error": "{\r\n  \"fund_code\": \"000217\",\r\n  \"error\": \"证监会披露平台 HTTP 错误：502 Bad Gateway\"\r\n}"
+    },
+    {
+      "fund_code": "022653",
+      "fund_name": "华安黄金ETF联接I",
+      "error": "{\r\n  \"fund_code\": \"022653\",\r\n  \"error\": \"证监会披露平台 HTTP 错误：502 Bad Gateway\"\r\n}"
+    },
+    {
+      "fund_code": "518880",
+      "fund_name": "华安黄金ETF",
+      "error": "{\r\n  \"fund_code\": \"518880\",\r\n  \"error\": \"证监会披露平台 HTTP 错误：502 Bad Gateway\"\r\n}"
+    },
+    {
+      "fund_code": "008079",
+      "fund_name": "诺德大类精选（FOF）",
+      "error": "{\r\n  \"fund_code\": \"008079\",\r\n  \"error\": \"证监会披露平台 HTTP 错误：502 Bad Gateway\"\r\n}"
+    }
+  ]
+}
