@@ -157,42 +157,6 @@ title: AI-Agent 使用介绍与实践资料
     font-size: 14px;
   }
 
-  .stage-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin: 0 0 38px;
-  }
-
-  .stage-card {
-    padding: 20px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--paper);
-    box-shadow: 0 12px 26px rgba(23, 32, 51, .045);
-  }
-
-  .stage-card h2 {
-    margin: 0 0 10px;
-    font-size: 22px;
-    letter-spacing: 0;
-  }
-
-  .stage-card p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .stage-card a {
-    display: inline-flex;
-    margin-top: 16px;
-    color: var(--teal);
-    font-weight: 700;
-    text-decoration: none;
-  }
-
   .section-heading {
     display: flex;
     justify-content: space-between;
@@ -307,8 +271,7 @@ title: AI-Agent 使用介绍与实践资料
 
   @media (max-width: 820px) {
     .hero,
-    .metrics,
-    .stage-grid {
+    .metrics {
       grid-template-columns: 1fr;
     }
 
@@ -324,7 +287,6 @@ title: AI-Agent 使用介绍与实践资料
   @media (prefers-reduced-motion: no-preference) {
     .hero,
     .metric,
-    .stage-card,
     .chapter-card {
       animation: rise-in .52s ease both;
     }
@@ -375,7 +337,7 @@ title: AI-Agent 使用介绍与实践资料
     <div>
       <p class="eyebrow">AI-Agent 使用指南</p>
       <h1>AI-Agent 使用介绍与实践资料</h1>
-      <p class="lead">围绕 AI-Agent 的实际使用整理教材链接、讲解视频、PPT/HTML 演示文稿和实践案例。当前第一期以《AI-Agent》教材导读为主线，后续会继续扩展其他专题分享。</p>
+      <p class="lead">围绕 AI-Agent 的实际使用整理教材链接、讲解视频、PPT/HTML 演示文稿和实践案例，覆盖基础概念、工具机制、知识库、Hooks、多智能体和科研办公场景。</p>
       <div class="badges">
         <img alt="Chapters" src="https://img.shields.io/badge/chapters-23-087f8c">
         <img alt="Video links" src="https://img.shields.io/badge/video_links-16%2F23-b86b2f">
@@ -385,7 +347,6 @@ title: AI-Agent 使用介绍与实践资料
       <div class="linkbar">
         <a class="primary" href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group">GitHub 仓库</a>
         <a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/blob/main/UPLOAD_GUIDE.md">上传指南</a>
-        <a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/topics">后续专题</a>
         <a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/issues">问题反馈</a>
         <a href="https://ai.lingnan.top/book/">教材网站</a>
       </div>
@@ -401,19 +362,6 @@ title: AI-Agent 使用介绍与实践资料
     <div class="metric"><strong>16</strong><span>章节已有视频链接</span></div>
     <div class="metric"><strong>6</strong><span>章节已有 PPT/HTML 资料</span></div>
     <div class="metric"><strong>2</strong><span>章节已有实践案例</span></div>
-  </section>
-
-  <section class="stage-grid">
-    <div class="stage-card">
-      <h2>第一期：教材导读</h2>
-      <p>保留 23 章教材学习资料，按章节维护教材链接、视频、PPT/HTML/PDF 和实践案例。</p>
-      <a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/chapters">查看章节资料</a>
-    </div>
-    <div class="stage-card">
-      <h2>后续：专题分享</h2>
-      <p>教材学习完成后，新的 AI-Agent 工具实践、案例复盘、论文分享和工作流模板会放入独立专题目录。</p>
-      <a href="https://github.com/yonghengl024-ctrl/ai-agent-reading-group/tree/main/topics">查看专题入口</a>
-    </div>
   </section>
 
   <section>
@@ -466,5 +414,5 @@ title: AI-Agent 使用介绍与实践资料
     </div>
   </section>
 
-  <p class="footer-note">本项目为 AI-Agent 使用介绍和实践资料整理项目，非教材官方网站。当前第一期围绕《AI-Agent》教材导读，后续专题分享将继续沉淀到 topics 目录。教材正文、更新和解释请以原教材网站为准。</p>
+  <p class="footer-note">本项目为 AI-Agent 使用介绍和实践资料整理项目，非教材官方网站。教材正文、更新和解释请以原教材网站为准。</p>
 </div>
