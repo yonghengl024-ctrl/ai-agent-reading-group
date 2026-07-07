@@ -5,7 +5,6 @@
 | 项目 | 内容 |
 |---|---|
 | 讲解人 | 张学人 |
-| 日期 | 待补充 |
 | PPT | 待补充 |
 | 视频 | [查看视频链接](./videos.md) |
 | 教材 | [阅读教材](https://ai.lingnan.top/book/chapters/chapter-5/) |
