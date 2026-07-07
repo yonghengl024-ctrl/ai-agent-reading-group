@@ -54,9 +54,18 @@ title: AI-Agent 使用介绍与实践资料
     animation: grid-flow 28s linear infinite;
   }
 
+  .agent-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
+
   .page-shell {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 1180px;
     margin: 0 auto;
     padding: 34px 20px 58px;
@@ -256,6 +265,10 @@ title: AI-Agent 使用介绍与实践资料
     body::after {
       animation: none;
     }
+
+    .agent-canvas {
+      display: none;
+    }
   }
 
   @keyframes color-flow {
@@ -290,6 +303,8 @@ title: AI-Agent 使用介绍与实践资料
     }
   }
 </style>
+
+<canvas class="agent-canvas" id="agent-bg" aria-hidden="true"></canvas>
 
 <div class="page-shell">
   <section class="hero">
@@ -339,3 +354,251 @@ title: AI-Agent 使用介绍与实践资料
 
   <p class="footer-note">本项目为 AI-Agent 使用介绍和实践资料整理项目，非教材官方网站。当前第一期围绕《AI-Agent》教材导读，后续专题分享将继续沉淀到 topics 目录。教材正文、更新和解释请以原教材网站为准。</p>
 </div>
+
+<script>
+  (function () {
+    var canvas = document.getElementById("agent-bg");
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (!canvas || reducedMotion.matches) {
+      if (canvas) {
+        canvas.remove();
+      }
+      return;
+    }
+
+    var ctx = canvas.getContext("2d");
+    var width = 0;
+    var height = 0;
+    var dpr = 1;
+    var frameId = 0;
+    var particles = [];
+    var pointer = { x: 0, y: 0, active: false };
+
+    function particleCount() {
+      var area = width * height;
+      return Math.min(110, Math.max(46, Math.floor(area / 18500)));
+    }
+
+    function createParticles() {
+      var count = particleCount();
+      var goldenAngle = Math.PI * (3 - Math.sqrt(5));
+      var cx = width * 0.52;
+      var cy = height * 0.46;
+      var spread = Math.min(width, height) * 0.64;
+      var next = [];
+
+      for (var i = 0; i < count; i += 1) {
+        var ratio = Math.sqrt((i + 0.5) / count);
+        var angle = i * goldenAngle;
+        var x = cx + Math.cos(angle) * spread * ratio + (Math.random() - 0.5) * 80;
+        var y = cy + Math.sin(angle) * spread * ratio + (Math.random() - 0.5) * 80;
+
+        next.push({
+          x: Math.max(24, Math.min(width - 24, x)),
+          y: Math.max(24, Math.min(height - 24, y)),
+          vx: (Math.random() - 0.5) * 0.28,
+          vy: (Math.random() - 0.5) * 0.28,
+          r: 1.3 + Math.random() * 1.8,
+          phase: Math.random() * Math.PI * 2,
+          tone: Math.random()
+        });
+      }
+
+      particles = next;
+    }
+
+    function resizeCanvas() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      createParticles();
+    }
+
+    function drawOrbit(time) {
+      var size = Math.min(width, height);
+      var cx = width * 0.73 + Math.sin(time * 0.22) * 18;
+      var cy = height * 0.28 + Math.cos(time * 0.18) * 14;
+
+      ctx.save();
+      ctx.lineWidth = 1.1;
+      ctx.setLineDash([9, 17]);
+      ctx.lineDashOffset = -time * 26;
+      ctx.strokeStyle = "rgba(64, 81, 181, 0.16)";
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, size * 0.42, size * 0.12, -0.34, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.setLineDash([5, 20]);
+      ctx.lineDashOffset = time * 18;
+      ctx.strokeStyle = "rgba(8, 127, 140, 0.15)";
+      ctx.beginPath();
+      ctx.ellipse(width * 0.25, height * 0.76, size * 0.34, size * 0.095, 0.46, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function updateParticles(time) {
+      var margin = 36;
+
+      for (var i = 0; i < particles.length; i += 1) {
+        var p = particles[i];
+        var flowX = Math.sin(time * 0.42 + p.phase) * 0.045;
+        var flowY = Math.cos(time * 0.38 + p.phase) * 0.045;
+
+        p.vx += flowX;
+        p.vy += flowY;
+
+        if (pointer.active) {
+          var dx = p.x - pointer.x;
+          var dy = p.y - pointer.y;
+          var distance = Math.sqrt(dx * dx + dy * dy) || 1;
+
+          if (distance < 190) {
+            var force = (1 - distance / 190) * 0.038;
+            p.vx += (dx / distance) * force;
+            p.vy += (dy / distance) * force;
+          }
+        }
+
+        p.vx *= 0.965;
+        p.vy *= 0.965;
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < -margin) p.x = width + margin;
+        if (p.x > width + margin) p.x = -margin;
+        if (p.y < -margin) p.y = height + margin;
+        if (p.y > height + margin) p.y = -margin;
+      }
+    }
+
+    function drawLinks() {
+      var maxDistance = Math.min(172, Math.max(112, width * 0.13));
+      var maxDistanceSq = maxDistance * maxDistance;
+
+      for (var i = 0; i < particles.length; i += 1) {
+        for (var j = i + 1; j < particles.length; j += 1) {
+          var a = particles[i];
+          var b = particles[j];
+          var dx = a.x - b.x;
+          var dy = a.y - b.y;
+          var distanceSq = dx * dx + dy * dy;
+
+          if (distanceSq < maxDistanceSq) {
+            var distance = Math.sqrt(distanceSq);
+            var alpha = Math.pow(1 - distance / maxDistance, 2) * 0.26;
+            ctx.strokeStyle = "rgba(8, 127, 140, " + alpha.toFixed(3) + ")";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      if (pointer.active) {
+        for (var k = 0; k < particles.length; k += 1) {
+          var p = particles[k];
+          var px = p.x - pointer.x;
+          var py = p.y - pointer.y;
+          var pointerDistance = Math.sqrt(px * px + py * py);
+
+          if (pointerDistance < 230) {
+            var pointerAlpha = Math.pow(1 - pointerDistance / 230, 2) * 0.42;
+            ctx.strokeStyle = "rgba(184, 107, 47, " + pointerAlpha.toFixed(3) + ")";
+            ctx.lineWidth = 1.15;
+            ctx.beginPath();
+            ctx.moveTo(pointer.x, pointer.y);
+            ctx.lineTo(p.x, p.y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function drawParticles(time) {
+      for (var i = 0; i < particles.length; i += 1) {
+        var p = particles[i];
+        var pulse = Math.sin(time * 1.6 + p.phase) * 0.45;
+        var radius = p.r + pulse;
+        var color = p.tone > 0.62 ? "64, 81, 181" : p.tone > 0.28 ? "8, 127, 140" : "184, 107, 47";
+        var glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius * 6.2);
+
+        glow.addColorStop(0, "rgba(" + color + ", 0.42)");
+        glow.addColorStop(0.45, "rgba(" + color + ", 0.14)");
+        glow.addColorStop(1, "rgba(" + color + ", 0)");
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, radius * 6.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "rgba(" + color + ", 0.72)";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, Math.max(1.2, radius), 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function animate(now) {
+      var time = now * 0.001;
+      ctx.clearRect(0, 0, width, height);
+      drawOrbit(time);
+      updateParticles(time);
+      drawLinks();
+      drawParticles(time);
+      frameId = window.requestAnimationFrame(animate);
+    }
+
+    function start() {
+      if (!frameId) {
+        frameId = window.requestAnimationFrame(animate);
+      }
+    }
+
+    function stop() {
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+        frameId = 0;
+      }
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("pointermove", function (event) {
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+      pointer.active = true;
+    });
+    window.addEventListener("pointerleave", function () {
+      pointer.active = false;
+    });
+    window.addEventListener("blur", function () {
+      pointer.active = false;
+    });
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        stop();
+      } else {
+        start();
+      }
+    });
+
+    if (typeof reducedMotion.addEventListener === "function") {
+      reducedMotion.addEventListener("change", function (event) {
+        if (event.matches) {
+          stop();
+          canvas.remove();
+        }
+      });
+    }
+
+    resizeCanvas();
+    start();
+  }());
+</script>
