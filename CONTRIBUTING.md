@@ -4,10 +4,11 @@
 
 每章资料放在 `chapters/chapter-XX/` 目录下：
 
-- `README.md`：章节概览、汇报信息、要点和讨论问题
+- `README.md`：章节概览、讲解信息、教材链接和资料入口
 - `videos.md`：讲解视频链接
-- `notes.md`：学习笔记
-- `slides/`：PPT 或 PDF 文件
+- `slides/`：PPT、PDF 或 HTML 演示文稿
+- `examples/`：可选，实践案例、代码和示例数据
+- `notes.md`：可选，有正式内容时再添加学习笔记
 
 ## 文件命名
 

@@ -2,7 +2,4 @@
 
 | 讲解人 | 视频链接 | PPT |
 |---|---|---|
-| 聂聪 | [百度网盘](https://pan.baidu.com/s/1mqgXu66YcIuas47ilbZUZA?pwd=qa68) | 待补充 |
-
-本地原始视频文件：待补充
-
+| 聂聪 | [百度网盘](https://pan.baidu.com/s/1mqgXu66YcIuas47ilbZUZA?pwd=qa68) | - |

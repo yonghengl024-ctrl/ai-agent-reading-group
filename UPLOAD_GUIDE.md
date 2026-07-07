@@ -19,8 +19,8 @@
 chapters/chapter-XX/
 ├── README.md
 ├── videos.md
-├── notes.md
-└── slides/
+├── slides/
+└── examples/   # 可选
 ```
 
 常见更新位置：
@@ -29,8 +29,9 @@ chapters/chapter-XX/
 |---|---|
 | PPT/PDF | `chapters/chapter-XX/slides/` |
 | 视频链接 | `chapters/chapter-XX/videos.md` |
-| 讲解人、日期、教材链接 | `chapters/chapter-XX/README.md` |
-| 实践笔记、讨论问题 | `chapters/chapter-XX/notes.md` |
+| 讲解人、教材链接、资料说明 | `chapters/chapter-XX/README.md` |
+| 实践案例、代码、示例数据 | `chapters/chapter-XX/examples/` |
+| 学习笔记 | 有正式内容时添加 `chapters/chapter-XX/notes.md` |
 
 ## PPT/PDF 命名建议
 
@@ -59,10 +60,10 @@ chapter-01-智能体概览与本书导读.pdf
 | xxx | [百度网盘](https://pan.baidu.com/s/xxxx?pwd=abcd) | [PDF](./slides/chapter-01-ai-agent-overview.pdf) |
 ```
 
-如果 PPT 还没有上传，可以先写：
+如果 PPT 还没有上传，可以用 `-` 标记：
 
 ```markdown
-| xxx | [百度网盘](https://pan.baidu.com/s/xxxx?pwd=abcd) | 待补充 |
+| xxx | [百度网盘](https://pan.baidu.com/s/xxxx?pwd=abcd) | - |
 ```
 
 ## 有写权限的上传流程
@@ -90,7 +91,7 @@ git push
 ```bash
 git commit -m "Add chapter 01 slides"
 git commit -m "Update chapter 08 video link"
-git commit -m "Add notes for chapter 12"
+git commit -m "Add chapter 12 notes"
 ```
 
 ## 没有写权限的上传流程
@@ -139,4 +140,3 @@ git push -u origin update-chapter-XX
 ```bash
 git status
 ```
-

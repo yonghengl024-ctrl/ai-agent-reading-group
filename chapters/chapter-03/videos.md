@@ -2,6 +2,4 @@
 
 | 讲解人 | 视频链接 | PPT |
 |---|---|---|
-| 莫凌玉 | [百度网盘](https://pan.baidu.com/s/1Jnk6DAFlvnH-gjFHRF6nlw?pwd=83p8) | 待补充 |
-
-本地原始视频文件：`../../../第3章 智能体框架安装与配置.mp4`
+| 莫凌玉 | [百度网盘](https://pan.baidu.com/s/1Jnk6DAFlvnH-gjFHRF6nlw?pwd=83p8) | - |
