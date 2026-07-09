@@ -3,7 +3,7 @@
 <p>
   <img alt="Chapters" src="https://img.shields.io/badge/chapters-23-087f8c">
   <img alt="Video links" src="https://img.shields.io/badge/video_links-16%2F23-b86b2f">
-  <img alt="Materials" src="https://img.shields.io/badge/materials-PPT%2FHTML-2f7d32">
+  <img alt="Materials" src="https://img.shields.io/badge/materials-PPT%2FPDF%2FHTML-2f7d32">
   <img alt="Series" src="https://img.shields.io/badge/series-book%20%2B%20topics-4051b5">
   <img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub_Pages-online-4051b5">
 </p>
@@ -98,7 +98,7 @@ topics/topic-name/
 | 第一期教材导读 | 已覆盖第 1 到第 23 章 |
 | 教材链接 | 已补充 |
 | 讲解视频链接 | 已补充 16/23 |
-| PPT/HTML | 已补充第 9-10、12、13、14、18 章 |
+| PPT/PDF/HTML | 已补充第 6、9-14、18 章 |
 | 实践案例 | 已补充第 13、14 章 |
 | 后续专题分享 | 将按主题持续添加到 `topics/` |
 | 学习笔记 | 有内容时按章节添加 |

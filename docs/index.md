@@ -315,11 +315,11 @@ title: AI-Agent 使用介绍与实践资料
     <div>
       <p class="eyebrow">AI-Agent 使用指南</p>
       <h1>AI-Agent 使用介绍与实践资料</h1>
-      <p class="lead">围绕 AI-Agent 的实际使用整理教材链接、讲解视频、PPT/HTML 演示文稿和实践案例。当前第一期以《AI-Agent》教材导读为主线，后续会继续扩展其他专题分享。</p>
+      <p class="lead">围绕 AI-Agent 的实际使用整理教材链接、讲解视频、PPT/PDF/HTML 演示文稿和实践案例。当前第一期以《AI-Agent》教材导读为主线，后续会继续扩展其他专题分享。</p>
       <div class="badges">
         <img alt="Chapters" src="https://img.shields.io/badge/chapters-23-087f8c">
         <img alt="Video links" src="https://img.shields.io/badge/video_links-16%2F23-b86b2f">
-        <img alt="Materials" src="https://img.shields.io/badge/materials-PPT%2FHTML-2f7d32">
+        <img alt="Materials" src="https://img.shields.io/badge/materials-PPT%2FPDF%2FHTML-2f7d32">
         <img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub_Pages-online-4051b5">
       </div>
       <div class="linkbar">
@@ -339,7 +339,7 @@ title: AI-Agent 使用介绍与实践资料
   <section class="metrics">
     <div class="metric"><strong>23</strong><span>章节目录已建立</span></div>
     <div class="metric"><strong>16</strong><span>章节已有视频链接</span></div>
-    <div class="metric"><strong>6</strong><span>章节已有 PPT/HTML 资料</span></div>
+    <div class="metric"><strong>8</strong><span>章节已有 PPT/PDF/HTML 资料</span></div>
     <div class="metric"><strong>2</strong><span>章节已有实践案例</span></div>
   </section>
 

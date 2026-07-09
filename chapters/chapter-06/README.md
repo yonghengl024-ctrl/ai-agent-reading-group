@@ -5,5 +5,7 @@
 | 项目 | 内容 |
 |---|---|
 | 讲解人 | 张学人 |
+| PDF | [PDF](./slides/chapter-06-git-version-control.pdf) |
+| 源文件 | [Markdown](./slides/chapter-06-git-version-control.md) |
 | 视频 | [查看视频链接](./videos.md) |
 | 教材 | [阅读教材](https://ai.lingnan.top/book/chapters/chapter-6/) |

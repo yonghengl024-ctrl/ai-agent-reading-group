@@ -2,4 +2,4 @@
 
 | 讲解人 | 视频链接 | PPT |
 |---|---|---|
-| 金鹏程 | [百度网盘](https://pan.baidu.com/s/1e68Tjwa-F2zGayqUX1yxNg?pwd=xvxw) | - |
+| 金鹏程 | [百度网盘](https://pan.baidu.com/s/1e68Tjwa-F2zGayqUX1yxNg?pwd=xvxw) | [PPTX](./slides/chapter-11-agent-teams.pptx) |
